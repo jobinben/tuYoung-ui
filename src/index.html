@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tuYong-ui</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* :root == html */
+        :root {
+            /* 这里定义通用一些变量 */
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #333;
+            --border-color: #BBB;
+            --border-color-hover: #666;
+        }
+        body{
+            font-size: var(--font-size);
+        }
+        #app {
+            margin: 20px;
+        }
+    </style>
+
+   
+</head>
+<body>
+    <div id="app">
+
+        <t-button></t-button>
+
+    </div>
+</body>
+</html>

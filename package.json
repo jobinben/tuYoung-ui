@@ -2,9 +2,10 @@
   "name": "tuyoung",
   "version": "0.0.1",
   "description": "这是一个ui框架",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web": "webpack serve --open Chrome.exe --content-base src"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,24 @@
   "homepage": "https://github.com/jobinben/tuYoung-ui#readme",
   "dependencies": {
     "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^6.2.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
+    "style-loader": "^3.2.1",
+    "url-loader": "^4.1.1",
+    "vue-loader": "^14.2.4",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.48.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   }
 }
