@@ -20,6 +20,11 @@ new Vue({
 
 import chai from "chai"
 
+// 第5个测试用例需要用到chai-spies
+import spies from "chai-spies"
+
+chai.use(spies) // 安装spies
+
 const expect = chai.expect
 // 单元测试 (1) t-button的icon属性
 {
@@ -127,13 +132,12 @@ const expect = chai.expect
     })
 
     vm.$mount()
-    vm.$on('click', function() {
-        // 可以被点击就会触发此次
-        console.log('可以被点击')
-        expect(1).to.eq(1)  // 错误写法的测试
-    })
+    let spy = chai.spy(() => {})
+    
+    vm.$on('click', spy)
     // 希望button可以被点击
     let button = vm.$el
     button.click()
+    expect(spy).to.have.been.called()
   
 }
