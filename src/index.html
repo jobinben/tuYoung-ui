@@ -37,11 +37,11 @@
     <div id="app">
 
         <t-button icon="settings" icon-position="right" >按钮</t-button>
-        <t-button icon="settings" icon-position="left" loading=true>按钮</t-button>
+        <t-button icon="settings" icon-position="left" :loading="flag" @click="flag = !flag">按钮</t-button>
         <t-button icon="left">按钮</t-button>
         <t-button icon="right" icon-position="right" >按钮</t-button>
 
-        <t-button loading="true">按钮</t-button>
+        <t-button :loading="flag" @click="flag = !flag">按钮</t-button>
         <t-button>按钮123</t-button>
 
         <t-icon name="download"></t-icon>
