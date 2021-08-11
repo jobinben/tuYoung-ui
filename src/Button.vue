@@ -1,8 +1,6 @@
 <template>
   <button class="t-button" :class="{ [`icon-${iconPosition}`]: true }">
-    <svg v-if="icon" class="icon">
-      <use v-bind:xlink:href="`#i-${icon}`"></use>
-    </svg>
+    <t-icon v-if="icon" :name="icon" class="icon"></t-icon>
     <!-- 插槽可以嵌入来自调用者的内容 -->
     <div class="content">
       <slot></slot>
@@ -76,8 +74,5 @@ export default {
     }
   }
 }
-.icon {
-  width: 1em;
-  height: 1em;
-}
+
 </style>
