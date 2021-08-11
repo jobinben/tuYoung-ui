@@ -1,6 +1,9 @@
 <template>
-  <button class="t-button" :class="{ [`icon-${iconPosition}`]: true }">
-    <t-icon v-if="icon" :name="icon" class="icon"></t-icon>
+  <button class="t-button" :class="{ [`icon-${iconPosition}`]: true }"
+  
+  >
+    <t-icon v-if="icon && !loading" :name="icon" class="icon"></t-icon>
+    <t-icon v-if="loading" name="loading" class="loading icon"></t-icon>
     <!-- 插槽可以嵌入来自调用者的内容 -->
     <div class="content">
       <slot></slot>
@@ -15,7 +18,11 @@ export default {
    * iconPosition : 图标位置
    */
   props: {
-    icon: {},
+    icon: {
+        type: String,
+        default: ''
+    },
+    loading: {},
     iconPosition: {
       type: String,
       default: "left",
@@ -31,6 +38,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .t-button {
   font-size: var(--font-size);
   height: var(--button-height);
@@ -73,6 +90,11 @@ export default {
       order: 1;
     }
   }
+
+  .loading{
+      animation: spin 2s infinite linear;
+  }
+
 }
 
 </style>
