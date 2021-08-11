@@ -7,3 +7,4 @@
 
 1. webpack 配置
 2. vue安装
+3. chai测试库安装
