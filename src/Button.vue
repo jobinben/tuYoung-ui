@@ -16,7 +16,19 @@ export default {
    * icon : 图标
    * iconPosition : 图标位置
    */
-  props: ["icon", "iconPosition"],
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: "left",
+    //   validator (value) { // 属性检查器
+    //     return value === 'left' || value === 'right'
+    //   }
+    // 优化代码
+    validator: val => val === 'left' || val === 'right'
+
+    },
+  },
 };
 </script>
 
@@ -49,19 +61,19 @@ export default {
     order: 1;
     margin-right: 0.4em;
   }
-  > .content{
-      order: 2;
+  > .content {
+    order: 2;
   }
 
-  &.icon-right{
-      > .icon {
-          order: 2;
-          margin-right: 0;
-        margin-left: 0.4em;
-      }
-      > .content {
-          order: 1;
-      }
+  &.icon-right {
+    > .icon {
+      order: 2;
+      margin-right: 0;
+      margin-left: 0.4em;
+    }
+    > .content {
+      order: 1;
+    }
   }
 }
 .icon {
