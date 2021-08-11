@@ -5,7 +5,17 @@
 </template>
 
 <script>
-export default {};
+export default {  
+    mounted() {
+        // 检测子元素是不是全是button
+        for (let node of this.$el.children) { 
+            let name = node.nodeName.toLowerCase()
+            if(name !== 'button') {
+                console.warn(`t-button-group 的子元素应该全是t-button, 但你写的是 ${name}。可能会造成显示问题。`)
+            }
+        }
+    }
+};
 </script>
 
 <style lang="less" scoped >

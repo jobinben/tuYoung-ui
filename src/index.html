@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         /* :root == html */
         :root {
             /* 这里定义通用一些变量 */
@@ -23,23 +25,26 @@
             --border-color: #BBB;
             --border-color-hover: #666;
         }
-        body{
+
+        body {
             font-size: var(--font-size);
         }
+
         #app {
             margin: 20px;
         }
     </style>
 
-   
+
 </head>
+
 <body>
     <div id="app">
 
-        <t-button icon="settings" icon-position="right" >按钮</t-button>
+        <t-button icon="settings" icon-position="right">按钮</t-button>
         <t-button icon="settings" icon-position="left" :loading="flag" @click="flag = !flag">按钮</t-button>
         <t-button icon="left">按钮</t-button>
-        <t-button icon="right" icon-position="right" >按钮</t-button>
+        <t-button icon="right" icon-position="right">按钮</t-button>
 
         <t-button :loading="flag" @click="flag = !flag">按钮</t-button>
         <t-button>按钮123</t-button>
@@ -47,16 +52,18 @@
         <t-icon name="download"></t-icon>
 
         <t-button-group>
+            
             <t-button icon="left">上一页</t-button>
             <t-button>更多</t-button>
             <t-button icon="right" icon-position="right">下一页</t-button>
 
         </t-button-group>
-     
+
 
     </div>
 
     <!-- 引入SVG在线连接 -->
     <script src="//at.alicdn.com/t/font_2736920_lkme0axwlwc.js"></script>
 </body>
+
 </html>
