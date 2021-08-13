@@ -12,7 +12,13 @@
 </template>
 
 <script>
+import Icon from "./Icon.vue"
 export default {
+
+  components: {
+    't-icon': Icon,
+  },
+
   /**
    * icon : 图标
    * iconPosition : 图标位置

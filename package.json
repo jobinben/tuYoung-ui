@@ -4,9 +4,9 @@
   "description": "这是一个ui框架",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "web": "webpack serve --open Chrome.exe --content-base src",
-    "build": "webpack build"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit"
   },
   "repository": {
     "type": "git",
@@ -23,36 +23,22 @@
   },
   "homepage": "https://github.com/jobinben/tuYoung-ui#readme",
   "dependencies": {
-    "vue": "^2.6.14"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "chai": "^4.3.4",
-    "chai-spies": "^1.0.0",
-    "css-loader": "^6.2.0",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.3.2",
-    "karma": "^6.3.4",
-    "karma-chai": "^0.1.0",
-    "karma-chai-spies": "^0.1.4",
-    "karma-chrome-launcher": "^3.1.0",
-    "karma-mocha": "^2.0.1",
-    "karma-sinon-chai": "^2.0.2",
-    "less": "^4.1.1",
-    "less-loader": "^10.0.1",
-    "mocha": "^9.0.3",
+    "@vue/cli-plugin-unit-mocha": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/test-utils": "^1.0.3",
+    "chai": "^4.1.2",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
     "sinon": "^11.1.2",
     "sinon-chai": "^3.7.0",
-    "style-loader": "^3.2.1",
-    "url-loader": "^4.1.1",
-    "vue-loader": "^14.2.4",
-    "vue-template-compiler": "^2.6.14",
-    "webpack": "^5.48.0",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
-  }
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
