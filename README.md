@@ -1,6 +1,8 @@
 
 # 一个基于Vue的组件库 -- tuYoung 
 
+[![Build Status](https://www.travis-ci.com/jobinben/tuYoung-ui.svg?branch=main)](https://www.travis-ci.com/jobinben/tuYoung-ui)
+
 ​	作者： 大冰
 
 
