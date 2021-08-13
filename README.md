@@ -11,21 +11,25 @@
 2. 测试库使用chai（断言库）mocha（自动化测试）
 
 ## Project setup
+下载依赖
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+开发
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+打包
 ```
 npm run build
 ```
 
 ### Run your unit tests
+自动化测试
 ```
 npm run test:unit
 ```
