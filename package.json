@@ -2,7 +2,7 @@
   "name": "tuyoung",
   "version": "0.0.1",
   "description": "这是一个ui框架",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
