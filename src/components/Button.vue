@@ -45,6 +45,19 @@ export default {
 
 <style lang="less" scoped>
 
+:root {
+            /* 这里定义通用一些变量 */
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #333;
+            --border-color: #BBB;
+            --border-color-hover: #666;
+        }
+
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
