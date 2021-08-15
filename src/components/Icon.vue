@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: "tuYoungIcon",
     props: ['name']
 }
 </script>
