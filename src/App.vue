@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <t-button >Default</t-button>
+    <t-button>Default</t-button>
     <t-button style="margin-left:1em;" type="primary" icon="settings">Primary</t-button>
     <t-button style="margin-left:1em;" type="info">Info</t-button>
     <t-button style="margin-left:1em;" type="success">Success</t-button>
