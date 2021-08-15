@@ -86,7 +86,7 @@ describe('Button', () => {
         vm.$destroy()
     })
 
-    it('点击 t-button 触发 click事件', async () => {
+    it('点击 t-button 触发 click事件', () => {
         const wrapper = mount(Button, {
             propsData: {
                 icon: 'settings',
@@ -100,6 +100,15 @@ describe('Button', () => {
         expect(callback).to.have.been.called
     })
 
+    it('可以设置 type 属性', () => {
+        const wrapper = mount(Button, {
+            propsData: {
+                type: 'success'
+            }
+        })
+        const btype = wrapper.props().type
+        expect(btype).to.eq('success')
+    })
 
 
 
