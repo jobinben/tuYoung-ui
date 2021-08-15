@@ -1,6 +1,8 @@
 <template>
-  <button class="t-button" :class="{ [`icon-${iconPosition}`]: true }"
-  @click="$emit('click')"
+  <button
+    class="t-button"
+    :class="[{ [`icon-${iconPosition}`]: true }, type]"
+    @click="$emit('click')"
   >
     <t-icon v-if="icon && !loading" :name="icon" class="icon"></t-icon>
     <t-icon v-if="loading" name="loading" class="loading icon"></t-icon>
@@ -12,11 +14,10 @@
 </template>
 
 <script>
-import Icon from "./Icon.vue"
+import Icon from "./Icon.vue";
 export default {
-
   components: {
-    't-icon': Icon,
+    "t-icon": Icon,
   },
 
   /**
@@ -25,19 +26,35 @@ export default {
    */
   props: {
     icon: {
-        type: String,
-        default: ''
+      type: String,
+      default: "",
     },
+
+    type: {
+      type: String,
+      default: "default",
+      validator: (val) => {
+        let typeList = [
+          "default",
+          "primary",
+          "success",
+          "info",
+          "warning",
+          "error",
+        ];
+        return typeList.indexOf(val) !== -1;
+      },
+    },
+
     loading: {},
     iconPosition: {
       type: String,
       default: "left",
-    //   validator (value) { // 属性检查器
-    //     return value === 'left' || value === 'right'
-    //   }
-    // 优化代码
-    validator: val => val === 'left' || val === 'right'
-
+      //   validator (value) { // 属性检查器
+      //     return value === 'left' || value === 'right'
+      //   }
+      // 优化代码
+      validator: (val) => val === "left" || val === "right",
     },
   },
 };
@@ -45,26 +62,13 @@ export default {
 
 <style lang="less" scoped>
 
-:root {
-            /* 这里定义通用一些变量 */
-            --button-height: 32px;
-            --font-size: 14px;
-            --button-bg: white;
-            --button-active-bg: #eee;
-            --border-radius: 4px;
-            --color: #333;
-            --border-color: #BBB;
-            --border-color-hover: #666;
-        }
-
-
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .t-button {
@@ -78,6 +82,80 @@ export default {
   justify-content: center;
   align-items: center;
   vertical-align: middle; /*解决设置inline内联元素后 元素上下不 对齐的cssbug */
+
+  /**按钮样式 */
+  --button-bg-p: #18a058;
+  --button-bg-p-hover: #36ad6a;
+  --button-bg-p-active: #0c7a43;
+  --button-bg-i: #2080f0;
+  --button-bg-i-hover: #4098fc;
+  --button-bg-i-active: #1060c9;
+  --button-bg-w: #f0a020;
+  --button-bg-w-hover: #fcb040;
+  --button-bg-w-active: #c97c10;
+  --button-bg-e: #d03050;
+  --button-bg-e-hover: #de576d;
+  --button-bg-e-active: #ab1f3f;
+  
+
+  &.primary, &.success{
+    background: var(--button-bg-p);
+    color: white;
+    border-color: var(--button-bg-p);
+    &:hover {
+      border-color: var(--button-bg-p-hover);
+      background: var(--button-bg-p-hover);
+      cursor: pointer;
+    }
+    &:active {
+      background: var(--button-bg-p-active);
+      border-color: var(--button-bg-p-active);
+    }
+  }
+  &.info{
+    background: var(--button-bg-i);
+    color: white;
+    border-color: var(--button-bg-i);
+    &:hover {
+      border-color: var(--button-bg-i-hover);
+      background: var(--button-bg-i-hover);
+      cursor: pointer;
+    }
+    &:active {
+      background: var(--button-bg-i-active);
+      border-color: var(--button-bg-i-active);
+    }
+  }
+
+  &.warning{
+    background: var(--button-bg-w);
+    color: white;
+    border-color: var(--button-bg-w);
+    &:hover {
+      border-color: var(--button-bg-w-hover);
+      background: var(--button-bg-w-hover);
+      cursor: pointer;
+    }
+    &:active {
+      background: var(--button-bg-w-active);
+      border-color: var(--button-bg-w-active);
+    }
+  }
+
+  &.error{
+    background: var(--button-bg-e);
+    color: white;
+    border-color: var(--button-bg-e);
+    &:hover {
+      border-color: var(--button-bg-e-hover);
+      background: var(--button-bg-e-hover);
+      cursor: pointer;
+    }
+    &:active {
+      background: var(--button-bg-e-active);
+      border-color: var(--button-bg-e-active);
+    }
+  }
 
   &:hover {
     border-color: var(--border-color-hover);
@@ -110,10 +188,8 @@ export default {
     }
   }
 
-  .loading{
-      animation: spin 2s infinite linear;
+  .loading {
+    animation: spin 2s infinite linear;
   }
-
 }
-
 </style>
