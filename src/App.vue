@@ -7,6 +7,11 @@
     <t-button style="margin-left:1em;" type="warning">Warning</t-button>
     <t-button style="margin-left:1em;" type="error">Error</t-button>
 
+    <t-button-group style="margin-left:1em;">
+    <t-button  type="default" icon="left">Back</t-button>
+    <t-button  type="info">Info</t-button>
+    <t-button  type="default" icon="right" iconPosition="right">Next</t-button>
+    </t-button-group>
 
     
 
@@ -18,11 +23,13 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import TButton from "./components/Button.vue"
+import TButtonGroup from "./components/ButtonGroup.vue"
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    TButton
+    TButton,
+    TButtonGroup
   }
 }
 </script>

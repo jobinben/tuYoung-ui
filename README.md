@@ -3,11 +3,11 @@
 
 [![Build Status](https://www.travis-ci.com/jobinben/tuYoung-ui.svg?branch=main)](https://www.travis-ci.com/jobinben/tuYoung-ui)
 
+
+## 介绍 Introduction
 ​	作者： 大冰
 
-
-## 前期准备
-
+## 开始使用 Start
 1. vue-cli 安装
 
 2. 测试库使用chai（断言库）mocha（自动化测试）
@@ -35,4 +35,20 @@ npm run build
 ```
 npm run test:unit
 ```
+
+
+## 文档 Documentation
+
+## 提问 Question
+
+## 变更记录 Changelog
+
+## 联系方式 Stay In Touch
+
+## 贡献代码 Contribution
+
+## License
+[MIT](https://opensource.org/licenses/MIT)
+Copyright (c) 2021-present, Jiabing (jobin) Yu
+
 
