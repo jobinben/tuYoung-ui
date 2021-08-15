@@ -21,9 +21,11 @@
 </template>
 
 <script>
+import "./components/svg"
 import HelloWorld from './components/HelloWorld.vue'
 import TButton from "./components/Button.vue"
 import TButtonGroup from "./components/ButtonGroup.vue"
+
 export default {
   name: 'App',
   components: {
