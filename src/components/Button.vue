@@ -71,6 +71,20 @@ export default {
   }
 }
 
+/**按钮type样式 */
+  @button-bg-p: #18a058;
+  @button-bg-p-hover: #36ad6a;
+  @button-bg-p-active: #0c7a43;
+  @button-bg-i: #2080f0;
+  @button-bg-i-hover: #4098fc;
+  @button-bg-i-active: #1060c9;
+  @button-bg-w: #f0a020;
+  @button-bg-w-hover: #fcb040;
+  @button-bg-w-active: #c97c10;
+  @button-bg-e: #d03050;
+  @button-bg-e-hover: #de576d;
+  @button-bg-e-active: #ab1f3f;
+
 .t-button {
   font-size: var(--font-size);
   height: var(--button-height);
@@ -83,77 +97,63 @@ export default {
   align-items: center;
   vertical-align: middle; /*解决设置inline内联元素后 元素上下不 对齐的cssbug */
 
-  /**按钮样式 */
-  --button-bg-p: #18a058;
-  --button-bg-p-hover: #36ad6a;
-  --button-bg-p-active: #0c7a43;
-  --button-bg-i: #2080f0;
-  --button-bg-i-hover: #4098fc;
-  --button-bg-i-active: #1060c9;
-  --button-bg-w: #f0a020;
-  --button-bg-w-hover: #fcb040;
-  --button-bg-w-active: #c97c10;
-  --button-bg-e: #d03050;
-  --button-bg-e-hover: #de576d;
-  --button-bg-e-active: #ab1f3f;
   
-
   &.primary, &.success{
-    background: var(--button-bg-p);
+    background: @button-bg-p;
     color: white;
-    border-color: var(--button-bg-p);
+    border-color: @button-bg-p;
     &:hover {
-      border-color: var(--button-bg-p-hover);
-      background: var(--button-bg-p-hover);
+      border-color: @button-bg-p-hover;
+      background: @button-bg-p-hover;
       cursor: pointer;
     }
     &:active {
-      background: var(--button-bg-p-active);
-      border-color: var(--button-bg-p-active);
+      background: @button-bg-p-active;
+      border-color: @button-bg-p-active;
     }
   }
   &.info{
-    background: var(--button-bg-i);
+    background:@button-bg-i;
     color: white;
-    border-color: var(--button-bg-i);
+    border-color: @button-bg-i;
     &:hover {
-      border-color: var(--button-bg-i-hover);
-      background: var(--button-bg-i-hover);
+      border-color: @button-bg-i-hover;
+      background: @button-bg-i-hover;
       cursor: pointer;
     }
     &:active {
-      background: var(--button-bg-i-active);
-      border-color: var(--button-bg-i-active);
+      background: @button-bg-i-active;
+      border-color: @button-bg-i-active;
     }
   }
 
   &.warning{
-    background: var(--button-bg-w);
+    background: @button-bg-w;
     color: white;
-    border-color: var(--button-bg-w);
+    border-color: @button-bg-w;
     &:hover {
-      border-color: var(--button-bg-w-hover);
-      background: var(--button-bg-w-hover);
+      border-color: @button-bg-w-hover;
+      background: @button-bg-w-hover;
       cursor: pointer;
     }
     &:active {
-      background: var(--button-bg-w-active);
-      border-color: var(--button-bg-w-active);
+      background: @button-bg-w-active;
+      border-color: @button-bg-w-active;
     }
   }
 
   &.error{
-    background: var(--button-bg-e);
+    background: @button-bg-e;
     color: white;
-    border-color: var(--button-bg-e);
+    border-color: @button-bg-e;
     &:hover {
-      border-color: var(--button-bg-e-hover);
-      background: var(--button-bg-e-hover);
+      border-color: @button-bg-e-hover;
+      background: @button-bg-e-hover;
       cursor: pointer;
     }
     &:active {
-      background: var(--button-bg-e-active);
-      border-color: var(--button-bg-e-active);
+      background: @button-bg-e-active;
+      border-color: @button-bg-e-active;
     }
   }
 
