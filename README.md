@@ -1,7 +1,7 @@
 
 # 一个基于Vue的组件库 -- tuYoung 
 
-[![Build Status](https://www.travis-ci.com/jobinben/tuYoung-ui.svg?branch=main)](https://www.travis-ci.com/jobinben/tuYoung-ui)
+[![Build Status](https://www.travis-ci.com/jobinben/tuYoung-ui.svg?branch=main)](https://www.travis-ci.com/jobinben/tuYoung-ui) ![npm](https://img.shields.io/npm/v/tuyoung?color=1&logo=tuyoung) ![NPM](https://img.shields.io/npm/l/tuyoung) ![npm](https://img.shields.io/npm/dm/tuyoung)
 
 
 ## 介绍 Introduction
