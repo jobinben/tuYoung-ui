@@ -6,6 +6,9 @@
       :disabled="disabled"
       :type="type"
       @change="$emit('change', $event)"
+      @input="$emit('input', $event)"
+      @focus="$emit('focus', $event)"
+      @blur="$emit('blur', $event)"
     />
     <template v-if="error && !success">
       <t-icon name="error" class="icon-err"></t-icon>
