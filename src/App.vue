@@ -3,7 +3,9 @@
     <t-input placeholder="Input"></t-input>
     <t-input style="margin-left: 1em"  placeholder="Don't click Input" disabled></t-input>
     <t-input style="margin-left: 1em"  placeholder="Input a number" type="number"></t-input>
-    <t-input style="margin-left: 1em"  placeholder="Error Input" error="this is a tips of error." ></t-input>
+    <t-input style="margin-left: 1em"  placeholder="Error Input" error="tips of error." ></t-input>
+    <t-input style="margin-left: 1em"  placeholder="Success Input" success="tips of success." ></t-input>
+
 
 
 
