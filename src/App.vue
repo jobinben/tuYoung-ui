@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <t-input placeholder="Input"></t-input>
+    <t-input value="input value"></t-input>
+
     <t-input style="margin-left: 1em"  placeholder="Don't click Input" disabled></t-input>
     <t-input style="margin-left: 1em"  placeholder="Input a number" type="number"></t-input>
     <t-input style="margin-left: 1em"  placeholder="Error Input" error="tips of error." ></t-input>
