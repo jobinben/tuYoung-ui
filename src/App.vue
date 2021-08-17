@@ -1,31 +1,36 @@
 <template>
   <div id="app">
-    <t-row>
+    <t-row  gutter="20">
       <t-col>1</t-col>
       <t-col>2</t-col>
     </t-row>
 
-    <t-row>
+    <t-row gutter="20">
       <t-col>1</t-col>
       <t-col>2</t-col>
       <t-col>3</t-col>
     </t-row>
 
-    <t-row>
+    <t-row gutter="40">
       <t-col>1</t-col>
       <t-col>2</t-col>
       <t-col>3</t-col>
       <t-col>4</t-col>
     </t-row>
 
-     <t-row>
+     <t-row gutter="20">
       <t-col span="2">1</t-col>
       <t-col span="22">2</t-col>
     </t-row>
 
-    <t-row>
+    <t-row gutter="20">
       <t-col span="4">1</t-col>
       <t-col span="20">2</t-col>
+    </t-row>
+
+     <t-row>
+      <t-col span=4>1</t-col>
+      <t-col span="18" offset="2">2</t-col>
     </t-row>
 
 
