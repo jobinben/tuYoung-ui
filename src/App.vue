@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <t-row>
       <t-col>1</t-col>
       <t-col>2</t-col>
@@ -22,6 +21,11 @@
      <t-row>
       <t-col span="2">1</t-col>
       <t-col span="22">2</t-col>
+    </t-row>
+
+    <t-row>
+      <t-col span="4">1</t-col>
+      <t-col span="20">2</t-col>
     </t-row>
 
 
@@ -112,6 +116,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 :root {
   /* 这里定义通用一些变量 */
   --button-height: 32px;
@@ -129,6 +134,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  // margin-top: 60px;
 }
 </style>
