@@ -111,7 +111,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="scss">
 :root {
   /* 这里定义通用一些变量 */
   --button-height: 32px;

@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped >
+<style lang="scss" scoped >
 .t-button-group {
   display: inline-flex;
   vertical-align: middle;
