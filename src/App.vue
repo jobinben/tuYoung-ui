@@ -1,5 +1,30 @@
 <template>
   <div id="app">
+
+    <t-row>
+      <t-col>1</t-col>
+      <t-col>2</t-col>
+    </t-row>
+
+    <t-row>
+      <t-col>1</t-col>
+      <t-col>2</t-col>
+      <t-col>3</t-col>
+    </t-row>
+
+    <t-row>
+      <t-col>1</t-col>
+      <t-col>2</t-col>
+      <t-col>3</t-col>
+      <t-col>4</t-col>
+    </t-row>
+
+     <t-row>
+      <t-col span="2">1</t-col>
+      <t-col span="22">2</t-col>
+    </t-row>
+
+
     <t-input placeholder="Input"></t-input>
     <t-input value="input value"></t-input>
 
@@ -59,6 +84,8 @@ import HelloWorld from "./components/HelloWorld.vue";
 import TButton from "./components/Button.vue";
 import TButtonGroup from "./components/ButtonGroup.vue";
 import TInput from "./components/Input.vue";
+import TRow from "./components/Row.vue"
+import TCol from "./components/Column.vue"
 
 export default {
   name: "App",
@@ -67,6 +94,8 @@ export default {
     TButton,
     TButtonGroup,
     TInput,
+    TRow,
+    TCol
   },
 
   data() {
