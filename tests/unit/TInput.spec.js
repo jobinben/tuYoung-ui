@@ -76,16 +76,38 @@ describe('Input:', () => { // 检测元素
             wrapper.$destroy()
         })
         // 优化测试用例
-        it('支持 change/input/focus/blur 事件.', () => {   
-            let eventList = ['change', 'input', 'focus', 'blur']
+        it('支持 change/focus/blur 事件.', () => {   
+            let eventList = ['change', 'focus', 'blur']
             eventList.forEach( eventName => {
                 const callback = Sinon.fake()
+
                 const event = new Event(eventName) // 创建事件
                 wrapper.$on(eventName, callback) // 添加监听事件
                 const inputElement = wrapper.$el.querySelector('input') // 找到目标元素
                 inputElement.dispatchEvent(event) // 派遣事件，也就是调用事件
                 // 事件调用call的断言需要sinon-chai
                 expect(callback).to.have.been.calledWith(event)
+            })
+            
+        })
+
+        it('支持 input 事件 且支持 v-model双向绑定.', () => {   
+            let eventList = ['input']
+            eventList.forEach( eventName => {
+                const callback = Sinon.fake()
+                const event = new Event(eventName) // 创建事件
+                // event的target属性是只读的，把它设置为可读
+                Object.defineProperty(event, 'target', {
+                    value: {
+                        value: 'helloWorld'
+                    },
+                    enumerable: true
+                })
+                wrapper.$on(eventName, callback) // 添加监听事件
+                const inputElement = wrapper.$el.querySelector('input') // 找到目标元素
+                inputElement.dispatchEvent(event) // 派遣事件，也就是调用事件
+                // 事件调用call的断言需要sinon-chai
+                expect(callback).to.have.been.calledWith('helloWorld')
             })
             
         })

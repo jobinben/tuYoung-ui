@@ -3,17 +3,34 @@
     <t-input placeholder="Input"></t-input>
     <t-input value="input value"></t-input>
 
-    <t-input style="margin-left: 1em"  placeholder="Don't click Input" disabled></t-input>
-    <t-input style="margin-left: 1em"  placeholder="Input a number" type="number"></t-input>
-    <t-input style="margin-left: 1em"  placeholder="Error Input" error="tips of error." ></t-input>
-    <t-input style="margin-left: 1em"  placeholder="Success Input" success="tips of success." ></t-input>
+    <t-input
+      style="margin-left: 1em"
+      placeholder="Don't click Input"
+      disabled
+    ></t-input>
+    <t-input
+      style="margin-left: 1em"
+      placeholder="Input a number"
+      type="number"
+    ></t-input>
+    <t-input
+      style="margin-left: 1em"
+      placeholder="Error Input"
+      error="tips of error."
+    ></t-input>
+    <t-input
+      style="margin-left: 1em"
+      placeholder="Success Input"
+      success="tips of success."
+    ></t-input>
 
-
-
-
+    <div>
+      <t-input placeholder="v-model" v-model="msg"></t-input>
+      <p>{{ msg }}</p>
+    </div>
 
     <div style="margin-top: 1em">
-      <t-button>Default</t-button>
+      <t-button @click="add">Default</t-button>
       <t-button style="margin-left: 1em" type="primary" icon="settings"
         >Primary</t-button
       >
@@ -50,6 +67,17 @@ export default {
     TButton,
     TButtonGroup,
     TInput,
+  },
+
+  data() {
+    return {
+      msg: "hello world",
+    };
+  },
+  methods: {
+    add() {
+      this.msg += 1;
+    },
   },
 };
 </script>
