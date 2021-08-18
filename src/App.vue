@@ -1,12 +1,22 @@
 <template>
   <div id="app">
     <t-row  gutter="20">
+      
       <t-col>
-        <div style="background:skyblue; border: 1px solid red; height: 100px;">1</div>
+        <t-row  align="center">
+          <t-col span="4">
+            <div style="background:black; border: 1px solid red; height: 100px; " >1</div>
+          </t-col>
+          <t-col span="10">
+            <div style="background:green; border: 1px solid red; height: 100px; " >2</div>
+          </t-col>
+        </t-row>
       </t-col>
+
       <t-col>
         <div style="background:skyblue; border: 1px solid red; height: 100px;">2</div>
       </t-col>
+
     </t-row>
 
     <t-row gutter="20">

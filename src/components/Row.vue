@@ -1,5 +1,5 @@
 <template>
-  <div class="row" :style="rowClasses">
+  <div class="row" :style="rowStyle" :class="rowClasses">
       <slot></slot>
   </div>
 </template>
@@ -9,6 +9,10 @@ export default {
     props: {
         gutter: {
             type: [Number, String]
+        },
+        align: {
+            type: String,
+            validator: val => ['left', 'right', 'center'].includes(val)
         }
     },
 
@@ -22,8 +26,12 @@ export default {
     },
 
     computed: {
-        rowClasses() {
+        rowStyle() {
             return {marginLeft: -this.gutter/2 + 'px', marginRight: -this.gutter/2 + 'px'}
+        },
+        rowClasses() {
+            let {align} = this
+            return [align && `align-${align}`]
         }
     }
 }
@@ -32,5 +40,15 @@ export default {
 <style lang="scss" scoped>
     .row{
         display: flex;
+        &.align-left {
+            justify-content: flex-start;
+        }
+        &.align-right {
+            justify-content: flex-end;
+        }
+        &.align-center {
+            justify-content: center;
+        }
+
     }
 </style>
