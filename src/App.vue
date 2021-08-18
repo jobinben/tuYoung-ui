@@ -1,14 +1,24 @@
 <template>
   <div id="app">
     <t-row  gutter="20">
-      <t-col>1</t-col>
-      <t-col>2</t-col>
+      <t-col>
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">1</div>
+      </t-col>
+      <t-col>
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">2</div>
+      </t-col>
     </t-row>
 
     <t-row gutter="20">
-      <t-col>1</t-col>
-      <t-col>2</t-col>
-      <t-col>3</t-col>
+      <t-col>
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">1</div>
+      </t-col>
+      <t-col>
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">2</div>
+      </t-col>
+      <t-col>
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">3</div>
+      </t-col>
     </t-row>
 
     <t-row gutter="40">
