@@ -1,57 +1,31 @@
 <template>
   <div id="app">
-    <t-row  gutter="20">
+    <t-row>
       
-      <t-col>
-        <t-row  align="center">
-          <t-col span="4">
-            <div style="background:black; border: 1px solid red; height: 100px; " >1</div>
-          </t-col>
-          <t-col span="10">
-            <div style="background:green; border: 1px solid red; height: 100px; " >2</div>
-          </t-col>
-        </t-row>
-      </t-col>
-
-      <t-col>
-        <div style="background:skyblue; border: 1px solid red; height: 100px;">2</div>
-      </t-col>
-
-    </t-row>
-
-    <t-row gutter="20">
-      <t-col>
+      <t-col span="24" :ipad="{span: 12}" :narrowPc="{span: 8}">
         <div style="background:skyblue; border: 1px solid red; height: 100px;">1</div>
       </t-col>
-      <t-col>
-        <div style="background:skyblue; border: 1px solid red; height: 100px;">2</div>
+     <t-col span="24" :ipad="{span: 12}" :narrowPc="{span: 8}">
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">1</div>
       </t-col>
-      <t-col>
-        <div style="background:skyblue; border: 1px solid red; height: 100px;">3</div>
+      <t-col span="24" :ipad="{span: 12}" :narrowPc="{span: 8}">
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">1</div>
       </t-col>
+      <t-col span="24" :ipad="{span: 12}" :narrowPc="{span: 8}">
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">1</div>
+      </t-col>
+      <t-col span="24" :ipad="{span: 12}" :narrowPc="{span: 8}">
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">1</div>
+      </t-col>
+      <t-col span="24" :ipad="{span: 12}" :narrowPc="{span: 8}">
+        <div style="background:skyblue; border: 1px solid red; height: 100px;">1</div>
+      </t-col>
+
+
     </t-row>
 
-    <t-row gutter="40">
-      <t-col>1</t-col>
-      <t-col>2</t-col>
-      <t-col>3</t-col>
-      <t-col>4</t-col>
-    </t-row>
+     
 
-     <t-row gutter="20">
-      <t-col span="2">1</t-col>
-      <t-col span="22">2</t-col>
-    </t-row>
-
-    <t-row gutter="20">
-      <t-col span="4">1</t-col>
-      <t-col span="20">2</t-col>
-    </t-row>
-
-     <t-row>
-      <t-col span=4>1</t-col>
-      <t-col span="18" offset="2">2</t-col>
-    </t-row>
 
 
     <t-input placeholder="Input"></t-input>
