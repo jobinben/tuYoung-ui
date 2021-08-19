@@ -1,6 +1,6 @@
-import TButton from "./src/components/Button"
-import TButtonGroup from "./src/components/ButtonGroup"
-import TIcon from "./src/components/Icon"
+import TButton from "./src/components/button/Button"
+import TButtonGroup from "./src/components/button/ButtonGroup"
+import TIcon from "./src/components/icon/Icon"
 
 export {
     TButton,

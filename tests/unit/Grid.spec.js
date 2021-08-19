@@ -36,13 +36,13 @@ describe('Grid', () => { // 检测元素
             // 因为测试用例代码执行完同步代码就直接关掉
             // 所以把断言放进异步上
             setTimeout(()=> {
-                const row = vm.$el.querySelector('.row')
+                const row = vm.$el.querySelector('.t-row')
                 let marginLeft = getComputedStyle(row).marginLeft
                 let marginRight = getComputedStyle(row).marginRight
                 expect(marginLeft).to.eq('-10px')
                 expect(marginRight).to.eq('-10px')
 
-                const col = vm.$el.querySelector('.col')
+                const col = vm.$el.querySelector('.t-col')
                 let paddingLeft = getComputedStyle(col).paddingLeft
                 let paddingRight = getComputedStyle(col).paddingRight
                 expect(paddingLeft).to.eq('10px')
