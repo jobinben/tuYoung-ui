@@ -1,5 +1,5 @@
 <template>
-  <div class="col" :class="colClasses" :style="colStyle">
+  <div class="t-col" :class="colClasses" :style="colStyle">
     <slot></slot>
   </div>
 </template>
@@ -15,6 +15,7 @@ let validator = (val) => {
 };
 
 export default {
+  name: "tuYoungColumn",
   props: {
     span: {
       type: [Number, String],
@@ -85,7 +86,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.col {
+.t-col {
   $class-prefix: col-;
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {

@@ -1,10 +1,12 @@
 <template>
-  <div class="content"></div>
+  <div class="t-content">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
-
+  name:"tuYoungContent"
 }
 </script>
 

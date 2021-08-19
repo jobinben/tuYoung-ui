@@ -1,11 +1,12 @@
 <template>
-  <div class="row" :style="rowStyle" :class="rowClasses">
+  <div class="t-row" :style="rowStyle" :class="rowClasses">
       <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
+    name: "tuYoungRow",
     props: {
         gutter: {
             type: [Number, String]
@@ -38,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .row{
+    .t-row{
         display: flex;
         flex-wrap: wrap;
         &.align-left {

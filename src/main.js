@@ -8,6 +8,7 @@ import Icon from './components/icon/Icon.vue'
 Vue.component('t-icon', Icon)
 // Vue.component('t-button-group', ButtonGroup)
 
+import Index from "./index.vue"
 
 
 

@@ -1,13 +1,39 @@
 <template>
-  <div class="layout"></div>
+  <div class="t-layout" :class="layoutClasses">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
+  name: "tuYoungLayout",
 
-}
+  data() {
+    return {
+      layoutClasses: {
+        hasSider: false,
+      },
+    };
+  },
+
+  mounted() {
+    console.log(this.$children);
+    this.$children.forEach((vm) => {
+      if (vm.$options.name === "tuYoungSider") {
+        this.layoutClasses.hasSider = true;
+      }
+    });
+  },
+};
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.t-layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  &.hasSider {
+    flex-direction: row;
+  }
+}
 </style>
