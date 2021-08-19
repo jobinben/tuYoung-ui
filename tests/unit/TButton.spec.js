@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import Button from "../../src/components/Button"
+import Button from "../../src/components/button/Button"
 import chai from "chai"
 import Sinon from 'sinon'
 import sinonChai from 'sinon-chai'

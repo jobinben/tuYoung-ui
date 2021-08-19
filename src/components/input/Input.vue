@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import TIcon from "./Icon.vue";
+import TIcon from "../icon/Icon.vue";
 export default {
   components: {
     TIcon,

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Input from "../../src/components/Input.vue"
+import Input from "../../src/components/input/Input.vue"
 import chai from "chai"
 import Sinon from 'sinon'
 import sinonChai from 'sinon-chai'

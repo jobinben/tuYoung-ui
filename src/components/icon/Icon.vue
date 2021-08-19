@@ -11,7 +11,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
 .t-icon {
   width: 1em;
   height: 1em;

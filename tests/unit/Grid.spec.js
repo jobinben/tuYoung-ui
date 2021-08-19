@@ -1,7 +1,7 @@
 import Vue from '/node_modules/vue/dist/vue.js'
 import { mount } from '@vue/test-utils'
-import TRow from "../../src/components/Row"
-import TCol from "../../src/components/Column"
+import TRow from "../../src/components/grid/Row"
+import TCol from "../../src/components/grid/Column"
 import chai from "chai"
 import sinonChai from 'sinon-chai'
 

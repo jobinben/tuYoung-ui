@@ -95,11 +95,11 @@
 <script>
 import "./components/svg";
 import HelloWorld from "./components/HelloWorld.vue";
-import TButton from "./components/Button.vue";
-import TButtonGroup from "./components/ButtonGroup.vue";
-import TInput from "./components/Input.vue";
-import TRow from "./components/Row.vue"
-import TCol from "./components/Column.vue"
+import TButton from "./components/button/Button.vue";
+import TButtonGroup from "./components/button/ButtonGroup.vue";
+import TInput from "./components/input/Input.vue";
+import TRow from "./components/grid/Row.vue"
+import TCol from "./components/grid/Column.vue"
 
 export default {
   name: "App",

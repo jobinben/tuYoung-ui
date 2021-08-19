@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Icon from "./Icon.vue";
+import Icon from "../icon/Icon.vue";
 export default {
   name: "tuYoungButton",
   components: {
