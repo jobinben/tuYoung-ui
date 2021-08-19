@@ -24,6 +24,17 @@
 
     </t-row>
 
+    <t-row>
+      <t-col span="12"><div style="background:skyblue; border: 1px solid red; height: 100px;">1</div></t-col>
+      <t-col span="12"><div style="background:skyblue; border: 1px solid red; height: 100px;">1</div></t-col>
+    </t-row>
+
+    <t-row align="center">
+      <t-col span="4"><div style="background:skyblue; border: 1px solid red; height: 100px;">1</div></t-col>
+      <t-col span="4"><div style="background:skyblue; border: 1px solid red; height: 100px;">1</div></t-col>
+      <t-col span=4><div style="background:skyblue; border: 1px solid red; height: 100px;">1</div></t-col>
+    </t-row>
+
      
 
 

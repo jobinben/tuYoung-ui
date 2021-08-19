@@ -98,6 +98,8 @@ describe('Button', () => {
         vm.$el.click()
         // 事件调用call的断言需要sinon-chai
         expect(callback).to.have.been.called
+        wrapper.destroy()
+
     })
 
     it('可以设置 type 属性', () => {
@@ -108,6 +110,7 @@ describe('Button', () => {
         })
         const btype = wrapper.props().type
         expect(btype).to.eq('success')
+        wrapper.destroy()
     })
 
 

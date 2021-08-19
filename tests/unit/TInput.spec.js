@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import { mount } from '@vue/test-utils'
 import Input from "../../src/components/Input.vue"
 import chai from "chai"
