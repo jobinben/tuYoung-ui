@@ -1,10 +1,14 @@
 <template>
-  <div class="t-toast">
-    <slot></slot>
-    <div class="borderLine" v-if="showClose"></div>
-    <span class="toastClose" v-if="showClose" @click="onClickClose">
-      {{ closeText }}
-    </span>
+  <div class="t-toast" ref="toast">
+    <div class="message">
+      <slot></slot>
+    </div>
+    <template v-if="showClose">
+      <div class="borderLine" ref="line"></div>
+      <span class="toastClose" @click="onClickClose">
+        {{ closeText }}
+      </span>
+    </template>
   </div>
 </template>
 
@@ -14,7 +18,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: ''
+      default: "",
     },
     showClose: {
       type: Boolean,
@@ -36,7 +40,6 @@ export default {
       type: Function,
       default: () => {},
     },
-
   },
 
   data() {
@@ -53,33 +56,47 @@ export default {
 
     onClickClose() {
       this.close(); // 执行关闭
-      clearTimeout(this.closeTimer) // 关闭自动关闭的异步
+      clearTimeout(this.closeTimer); // 关闭自动关闭的异步
       this.callback(this); // 执行关闭回调 传入this 方便用户调用该组件内的方法
+    },
+
+    execAutoClose() {
+      if (this.autoClose) {
+        this.closeTimer = setTimeout(() => {
+          this.close();
+          this.callback(this); // 自动关闭也执行回调
+        }, this.duration);
+      }
+    },
+
+    updateStyles() {
+      this.showClose &&
+        this.$nextTick(() => {
+          // 使用nextTick异步获取高度
+          this.$refs.line.style.height = `${
+            this.$refs.toast.getBoundingClientRect().height
+          }px`;
+        });
     },
   },
 
-
   mounted() {
-    if (this.autoClose) {
-      this.closeTimer = setTimeout(() => {
-        this.close();
-        this.callback(this); // 自动关闭也执行回调
-      }, this.duration);
-    }
+    this.execAutoClose();
+    this.updateStyles();
   },
 };
 </script>
 
 <style lang="scss" scoped>
 $font-size: 14px;
-$toast-height: 40px;
+$toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.65);
 $toast-border-radius: 4px;
 .t-toast {
   font-size: $font-size;
   color: #fff;
   background: $toast-bg;
-  height: $toast-height;
+  min-height: $toast-min-height;
   line-height: 1.8;
   position: fixed;
   top: 0;
@@ -91,6 +108,10 @@ $toast-border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   padding: 0 16px;
 
+  .message{
+      padding: 8px 0;
+  }
+
   .borderLine {
     border: 0.5px solid #666;
     height: 100%;
@@ -99,6 +120,7 @@ $toast-border-radius: 4px;
   .toastClose {
     padding-left: 16px;
     cursor: pointer;
+    flex-shrink: 0;
   }
 }
 </style>
