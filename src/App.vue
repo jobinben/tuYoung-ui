@@ -119,7 +119,7 @@ export default {
   },
   methods: {
     add() {
-      this.msg += 1;
+      this.$showToast('Toast')
     },
   },
 };
@@ -127,17 +127,6 @@ export default {
 
 <style lang="scss">
 
-:root {
-  /* 这里定义通用一些变量 */
-  --button-height: 32px;
-  --font-size: 14px;
-  --button-bg: white;
-  --button-active-bg: #eee;
-  --border-radius: 4px;
-  --color: #333;
-  --border-color: #bbb;
-  --border-color-hover: #666;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

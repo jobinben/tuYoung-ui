@@ -71,7 +71,15 @@ export default {
     transform: rotate(360deg);
   }
 }
-
+ /* 这里定义通用一些变量 */
+  $button-height: 32px;
+  $font-size: 14px;
+  $button-bg: white;
+  $button-active-bg: #eee;
+  $border-radius: 4px;
+  $color: #333;
+  $border-color: #bbb;
+  $border-color-hover: #666;
 /**按钮type样式 */
   $button-bg-p: #18a058;
   $button-bg-p-hover: #36ad6a;
@@ -87,12 +95,12 @@ export default {
   $button-bg-e-active: #ab1f3f;
 
 .t-button {
-  font-size: var(--font-size);
-  height: var(--button-height);
+  font-size: $font-size;
+  height: $button-height;
   padding: 0 1em;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-  background: var(--button-bg);
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  background: $button-bg;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -159,12 +167,12 @@ export default {
   }
 
   &:hover {
-    border-color: var(--border-color-hover);
+    border-color: $border-color-hover;
     cursor: pointer;
   }
 
   &:active {
-    background: var(--button-active-bg);
+    background: $button-active-bg;
   }
   &:focus {
     outline: none;
