@@ -119,7 +119,19 @@ export default {
   },
   methods: {
     add() {
-      this.$showToast('Toast')
+      this.$showToast({
+        title: 'toast is goods',
+        autoClose: true,
+        showClose: true,
+        duration: 5000,
+        closeText: 'Close',
+
+        callback(vm) {
+            console.log(123);
+            console.log(vm)
+          }
+
+      })
     },
   },
 };
