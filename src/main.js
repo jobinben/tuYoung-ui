@@ -12,6 +12,7 @@ import ToastPlugin from "./components/toast/toastPlugin"
 Vue.use(ToastPlugin)
 
 Vue.config.productionTip = false
+Vue.config.devtools = false
 
 new Vue({
 
