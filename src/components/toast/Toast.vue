@@ -55,22 +55,23 @@ export default {
 
   methods: {
     close() {
-      this.$el.remove();
-      this.$destroy();
+      this.$el.remove()
+      this.$emit('beforeClose')
+      clearTimeout(this.closeTimer) // 关闭自动关闭的异步
+      this.$destroy()
     },
 
     onClickClose() {
-      this.close(); // 执行关闭
-      clearTimeout(this.closeTimer); // 关闭自动关闭的异步
-      this.callback(this); // 执行关闭回调 传入this 方便用户调用该组件内的方法
+      this.close() // 执行关闭
+      this.callback(this) // 执行关闭回调 传入this 方便用户调用该组件内的方法
     },
 
     execAutoClose() {
       if (this.autoClose) {
         this.closeTimer = setTimeout(() => {
-          this.close();
-          this.callback(this); // 自动关闭也执行回调
-        }, this.duration);
+          this.close()
+          this.callback(this) // 自动关闭也执行回调
+        }, this.duration)
       }
     },
 
@@ -80,7 +81,7 @@ export default {
           // 使用nextTick异步获取高度
           this.$refs.line.style.height = `${
             this.$refs.toast.getBoundingClientRect().height
-          }px`;
+          }px`
         });
     },
   },
@@ -105,7 +106,17 @@ $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.65);
 $toast-border-radius: 4px;
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
 .t-toast {
+  animation: fade-in 1s;
   font-size: $font-size;
   color: #fff;
   background: $toast-bg;
