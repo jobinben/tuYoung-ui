@@ -120,7 +120,7 @@ export default {
   methods: {
     add() {
       this.$showToast({
-        title: 'toast is goods',
+        title: `toast is goods ${parseInt(Math.random()*100)}`,
         position: 'middle',
         autoClose: true,
         showClose: true,
