@@ -12,12 +12,14 @@ basic
 
 ### Toast Props
 
-| 名称 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| title | `string`| `''`  | 提示的内容 |
-| autoClose | `boolean` | `true` | 自动关闭提示 |
-| showClose| `boolean ` | `false`| 显示关闭按钮 | 
-| closeText | `string` | `关闭` | 关闭按钮文本|
-| duration | `number` | `1500` | 自动关闭时间 `单位:ms` |
-| callback | `funtion` | `(vm)=>{}` | 关闭后回调函数，默认第一个参数为`Toast`本身 |
+| 名称 | 类型 | 可选值 | 默认值 | 说明 |
+| --- | --- | --- |  --- | --- |
+| title | `string`| `*`| `''`  | 提示的内容 |
+| autoClose | `boolean` |`*`| `true` | 自动关闭提示 |
+| showClose| `boolean ` |`true`\| `false`| `false`| 显示关闭按钮 | 
+| closeText | `string` |`*` |`关闭` | 关闭按钮文本|
+| duration | `number` | `*`|`1500` | 自动关闭时间 `单位:ms` |
+| position | `string` |`top` \| `middle` \| `bottom` |`middle` | 提示的位置 |
+| callback | `funtion` | `默认第一个参数为toast本身` |`(vm)=>{}` | 关闭后回调函数 |
+
     

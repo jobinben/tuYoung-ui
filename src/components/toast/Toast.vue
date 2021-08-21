@@ -1,5 +1,5 @@
 <template>
-  <div class="t-toast" ref="toast">
+  <div class="t-toast" ref="toast" :class="toastClasses">
     <div class="message">
       <slot></slot>
     </div>
@@ -40,6 +40,11 @@ export default {
       type: Function,
       default: () => {},
     },
+    position: {
+      type: String,
+      default: 'middle',
+      validator: val => ['top', 'middle', 'bottom'].indexOf(val) !== -1
+    }
   },
 
   data() {
@@ -84,6 +89,14 @@ export default {
     this.execAutoClose();
     this.updateStyles();
   },
+
+  computed: {
+    toastClasses(){
+      return {
+        [`position-${this.position}`] : true
+      }
+    }
+  }
 };
 </script>
 
@@ -99,9 +112,7 @@ $toast-border-radius: 4px;
   min-height: $toast-min-height;
   line-height: 1.8;
   position: fixed;
-  top: 0;
   left: 50%;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
   border-radius: $toast-border-radius;
@@ -121,6 +132,20 @@ $toast-border-radius: 4px;
     padding-left: 16px;
     cursor: pointer;
     flex-shrink: 0;
+  }
+
+  &.position-top{
+    top: 0;
+    transform: translateX(-50%); // 解决元素居中问题
+
+  }
+   &.position-middle{
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+   &.position-bottom{
+    bottom: 0;
+    transform: translateX(-50%);
   }
 }
 </style>

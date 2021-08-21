@@ -13,7 +13,7 @@ export default {
         },
         align: {
             type: String,
-            validator: val => ['left', 'right', 'center'].includes(val)
+            validator: val => ['left', 'right', 'center'].indexOf(val) !== -1,
         }
     },
 

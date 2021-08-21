@@ -121,6 +121,7 @@ export default {
     add() {
       this.$showToast({
         title: 'toast is goods',
+        position: 'middle',
         autoClose: true,
         showClose: true,
         duration: 5000,
