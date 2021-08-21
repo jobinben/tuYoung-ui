@@ -1,14 +1,16 @@
 <template>
-  <div class="t-toast" ref="toast" :class="toastClasses">
-    <div class="message">
-      <slot></slot>
+  <div class="wrapper" :class="toastClasses">
+    <div class="t-toast" ref="toast">
+      <div class="message">
+        <slot></slot>
+      </div>
+      <template v-if="showClose">
+        <div class="borderLine" ref="line"></div>
+        <span class="toastClose" @click="onClickClose">
+          {{ closeText }}
+        </span>
+      </template>
     </div>
-    <template v-if="showClose">
-      <div class="borderLine" ref="line"></div>
-      <span class="toastClose" @click="onClickClose">
-        {{ closeText }}
-      </span>
-    </template>
   </div>
 </template>
 
@@ -42,9 +44,9 @@ export default {
     },
     position: {
       type: String,
-      default: 'middle',
-      validator: val => ['top', 'middle', 'bottom'].indexOf(val) !== -1
-    }
+      default: "middle",
+      validator: (val) => ["top", "middle", "bottom"].indexOf(val) !== -1,
+    },
   },
 
   data() {
@@ -55,23 +57,23 @@ export default {
 
   methods: {
     close() {
-      this.$el.remove()
-      this.$emit('beforeClose')
-      clearTimeout(this.closeTimer) // 关闭自动关闭的异步
-      this.$destroy()
+      this.$el.remove();
+      this.$emit("beforeClose");
+      clearTimeout(this.closeTimer); // 关闭自动关闭的异步
+      this.$destroy();
     },
 
     onClickClose() {
-      this.close() // 执行关闭
-      this.callback(this) // 执行关闭回调 传入this 方便用户调用该组件内的方法
+      this.close(); // 执行关闭
+      this.callback(this); // 执行关闭回调 传入this 方便用户调用该组件内的方法
     },
 
     execAutoClose() {
       if (this.autoClose) {
         this.closeTimer = setTimeout(() => {
-          this.close()
-          this.callback(this) // 自动关闭也执行回调
-        }, this.duration)
+          this.close();
+          this.callback(this); // 自动关闭也执行回调
+        }, this.duration);
       }
     },
 
@@ -81,7 +83,7 @@ export default {
           // 使用nextTick异步获取高度
           this.$refs.line.style.height = `${
             this.$refs.toast.getBoundingClientRect().height
-          }px`
+          }px`;
         });
     },
   },
@@ -92,12 +94,12 @@ export default {
   },
 
   computed: {
-    toastClasses(){
+    toastClasses() {
       return {
-        [`position-${this.position}`] : true
-      }
-    }
-  }
+        [`position-${this.position}`]: true,
+      };
+    },
+  },
 };
 </script>
 
@@ -107,31 +109,78 @@ $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.65);
 $toast-border-radius: 4px;
 
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
+
+.wrapper {
+  position: fixed;
+  left: 50%;
+  $delay: .7s;
+  &.position-top {
+    top: 0;
+    transform: translateX(-50%); // 解决元素居中问题
+    .t-toast{
+      animation: slide-down $delay;
+    }
+  
+  }
+  &.position-middle {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    .t-toast{
+      animation: fade-in $delay;
+    }
+  }
+  &.position-bottom {
+    bottom: 0;
+    transform: translateX(-50%);
+    .t-toast{
+      animation: slide-up $delay;
+    }
+  }
+}
 .t-toast {
-  animation: fade-in 1s;
   font-size: $font-size;
   color: #fff;
   background: $toast-bg;
   min-height: $toast-min-height;
   line-height: 1.8;
-  position: fixed;
-  left: 50%;
   display: flex;
   align-items: center;
   border-radius: $toast-border-radius;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   padding: 0 16px;
 
-  .message{
-      padding: 8px 0;
+  .message {
+    padding: 8px 0;
   }
 
   .borderLine {
@@ -143,20 +192,6 @@ $toast-border-radius: 4px;
     padding-left: 16px;
     cursor: pointer;
     flex-shrink: 0;
-  }
-
-  &.position-top{
-    top: 0;
-    transform: translateX(-50%); // 解决元素居中问题
-
-  }
-   &.position-middle{
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-   &.position-bottom{
-    bottom: 0;
-    transform: translateX(-50%);
   }
 }
 </style>

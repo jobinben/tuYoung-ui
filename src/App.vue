@@ -69,12 +69,12 @@
     </div>
 
     <div style="margin-top: 1em">
-      <t-button @click="add">Default</t-button>
-      <t-button style="margin-left: 1em" type="primary" icon="settings"
+      <t-button @click="add('top')">Default</t-button>
+      <t-button @click="add('middle')" style="margin-left: 1em" type="primary" icon="settings"
         >Primary</t-button
       >
-      <t-button style="margin-left: 1em" type="info">Info</t-button>
-      <t-button style="margin-left: 1em" type="success">Success</t-button>
+      <t-button @click="add('bottom')" style="margin-left: 1em" type="info">Info</t-button>
+      <t-button @click="add('center')" style="margin-left: 1em" type="success">Success</t-button>
       <t-button style="margin-left: 1em" type="warning">Warning</t-button>
       <t-button style="margin-left: 1em" type="error">Error</t-button>
 
@@ -118,10 +118,10 @@ export default {
     };
   },
   methods: {
-    add() {
+    add(position) {
       this.$showToast({
         title: `toast is goods ${parseInt(Math.random()*100)}`,
-        position: 'middle',
+        position,
         autoClose: true,
         showClose: true,
         duration: 5000,
