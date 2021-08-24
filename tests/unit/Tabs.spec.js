@@ -102,6 +102,7 @@ describe('Tabs:', () => { // 检测元素
             })
             let tabName = wrapper.attributes('data-name')
             expect(tabName).to.be.eq('myname')
+            wrapper.destroy()
         })
 
     })
