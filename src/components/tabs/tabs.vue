@@ -39,6 +39,9 @@ export default {
   },
 
   mounted() {
+    if(!this.$children.length) {
+        throw new Error('t-tabs的子组件应该是t-tabs-body 和 t-tabs-head')
+    }
     this.$children.forEach((vm) => {
       if (vm.$options.name === "tuYoungTabsHead") {
         vm.$children.forEach((childvm) => {

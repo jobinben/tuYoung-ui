@@ -69,7 +69,7 @@ export default {
   }
   &.disabled{
       color: #bbb;
-      cursor: no-drop;
+      cursor: not-allowed;
   }
 }
 </style>
