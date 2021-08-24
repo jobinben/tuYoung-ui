@@ -1,5 +1,8 @@
 <template>
-  <div class="tabsItem" @click="onClick" :class="classes">
+<!-- data-name属性是用于单元测试 -->
+  <div class="tabsItem" @click="onClick" :class="classes"
+    :data-name="name"
+  >
     <slot></slot>
   </div>
 </template>
@@ -41,7 +44,8 @@ export default {
   },
 
   created() {
-    this.eventBus.$on("update:selected", (name) => {
+    
+    this.eventBus && this.eventBus.$on("update:selected", (name) => {
       this.active = name === this.name;
     });
   },
@@ -49,7 +53,8 @@ export default {
   methods: {
     onClick() {
       if (this.disabled) return;
-      this.eventBus.$emit("update:selected", this.name, this);
+      this.eventBus && this.eventBus.$emit("update:selected", this.name, this);
+      this.$emit('click', this)
     },
   },
 };

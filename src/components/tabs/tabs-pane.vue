@@ -1,5 +1,7 @@
 <template>
-  <div class="tabsPane" :class="classes" v-show="active">
+<!-- data-name属性用于单元测试 -->
+  <div class="tabsPane" :class="classes" v-show="active"
+  :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -7,7 +9,7 @@
 <script>
 export default {
   name: "tuYoungTabsPane",
-  inject: ["eventBus"],
+  inject: ['eventBus'],
   props: {
     name: {
       type: String| Number,
@@ -22,7 +24,7 @@ export default {
   },
 
   created() {
-    this.eventBus.$on("update:selected", (name) => {
+    this.eventBus && this.eventBus.$on("update:selected", (name) => {
       this.active = name === this.name;
     });
   },
