@@ -40,8 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .tabsPane{
-    &.active{
-        background: red;
-    }
+    padding: 1em;
+    
 }
 </style>
