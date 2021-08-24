@@ -41,12 +41,12 @@ export default {
   mounted() {
     this.$children.forEach((vm) => {
       if (vm.$options.name === "tuYoungTabsHead") {
-        vm.$children.forEach((item) => {
+        vm.$children.forEach((childvm) => {
           if (
-            item.$options.name === "tuYoungTabsItem" &&
-            item.name === this.selected
+            childvm.$options.name === "tuYoungTabsItem" &&
+            childvm.name === this.selected
           ) {
-            this.eventBus.$emit("update:selected", this.selected, item);
+            this.eventBus.$emit("update:selected", this.selected, childvm);
           }
         });
       }
