@@ -35,7 +35,6 @@ export default {
     },
 
     created() {
-        console.log('tabsItem: ', this.eventBus);
         this.eventBus.$on('update:selected', (name) => {
             this.active = name === this.name
         })
@@ -43,7 +42,7 @@ export default {
 
     methods: {
         xxx() {
-            this.eventBus.$emit('update:selected', this.name)
+            this.eventBus.$emit('update:selected', this.name, this)
         }
     }
 }
@@ -55,6 +54,9 @@ export default {
     flex-shrink: 0;
     padding: 0 2em;
     cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
     &.active{
         background: red;
     }

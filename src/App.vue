@@ -7,7 +7,7 @@
         <template slot="actions">
           <t-button>设置</t-button>
         </template>
-        <t-tabs-item name="front"> 前端 </t-tabs-item>
+        <t-tabs-item name="front"><t-icon name="settings"></t-icon> 前端 </t-tabs-item>
         <t-tabs-item name="back"> 后端 </t-tabs-item>
         <t-tabs-item name="stack"> 全栈 </t-tabs-item>
         

@@ -1,50 +1,59 @@
 <template>
   <div class="tabs">
-      <slot></slot>
+    <slot></slot>
   </div>
 </template>
 
 <script>
-import Vue from "vue"
+import Vue from "vue";
 export default {
-    name: "tuYoungTabs",
-    props: {
-        selected: {
-            type: String,
-            required: true
-        },
-        direction: {
-            type: String,
-            default: 'horizontal',
-            validator: val => ['horizontal', 'vertical'].indexOf(val) !== -1
-        }
+  name: "tuYoungTabs",
+  props: {
+    selected: {
+      type: String,
+      required: true,
     },
-
-    data() {
-        return {
-            eventBus: new Vue()
-        }
+    direction: {
+      type: String,
+      default: "horizontal",
+      validator: (val) => ["horizontal", "vertical"].indexOf(val) !== -1,
     },
+  },
 
-    // 提供一个可以注入的事件在其他组件可以使用。
-    provide() {
-        return {
-            eventBus: this.eventBus
-        }
-    },
+  data() {
+    return {
+      eventBus: new Vue(),
+    };
+  },
 
-    created() {
-        // console.log(this.eventBus)
-        // console.log(this)
-    },
+  // 提供一个可以注入的事件在其他组件可以使用。
+  provide() {
+    return {
+      eventBus: this.eventBus,
+    };
+  },
 
-    mounted() {
-        this.eventBus.$emit('update:selected', this.selected)
-    }
+  created() {
+    // console.log(this.eventBus)
+    // console.log(this)
+  },
 
-}
+  mounted() {
+    this.$children.forEach((vm) => {
+      if (vm.$options.name === "tuYoungTabsHead") {
+        vm.$children.forEach((item) => {
+          if (
+            item.$options.name === "tuYoungTabsItem" &&
+            item.name === this.selected
+          ) {
+            this.eventBus.$emit("update:selected", this.selected, item);
+          }
+        });
+      }
+    });
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>
