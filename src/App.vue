@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    
+    <t-popover>
+      <template slot="content">
+        <div>popover内容</div>
+      </template>
+      <t-button>popover</t-button>
+    </t-popover>
+
     <t-tabs :selected.sync="selectedTab">
       <!-- <t-tabs :selected="selectedTab" @update:selectedTab="selectedTab=$event"> -->
 
@@ -158,6 +166,7 @@ import TTabsBody from "./components/tabs/tabs-body.vue";
 import TTabsHead from "./components/tabs/tabs-head.vue";
 import TTabsItem from "./components/tabs/tabs-item.vue";
 import TTabsPane from "./components/tabs/tabs-pane.vue";
+import TPopover from "./components/popover/Popover.vue"
 
 export default {
   name: "App",
@@ -173,6 +182,7 @@ export default {
     TTabsHead,
     TTabsItem,
     TTabsPane,
+    TPopover
   },
 
   data() {
