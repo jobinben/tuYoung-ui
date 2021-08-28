@@ -4,9 +4,9 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: '主页', link: '/' },
-            { text: '文档', link: '/guide/get-started/' },
+            { text: '文档', link: '/guide/introduce/' },
             { text: '组件', link: '/components/' },
-            { text: '交流', link: '/' },
+            { text: '交流', link: 'https://github.com/jobinben/tuYoung-ui' },
 
         ],
         sidebar: {
