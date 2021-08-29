@@ -4,9 +4,9 @@
     <div ref="contentWrapper" class="content-wrapper" v-if="visible">
       <slot name="content"></slot>
     </div>
-    <div ref="triggerWrapper">
+    <span ref="triggerWrapper" style="display: inline-block">
       <slot></slot>
-    </div>
+    </span>
   </div>
 </template>
 
@@ -20,8 +20,7 @@ export default {
     };
   },
 
-  mounted() {
-  },
+  mounted() {},
 
   methods: {
     positionContent() {
@@ -33,11 +32,14 @@ export default {
       this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
     },
 
+    getRefs(ref, event) {
+      // 获取ref对象元素
+      return this.$refs[ref] &&  (this.$refs[ref] === event.target || this.$refs[ref].contains(event.target))
+    },
+
     onClickDocument(event) {
-      if (this.$refs.popover && (this.$refs.popover === event.target || this.$refs.popover.contains(event.target))) {
-        return;
-      }
-      this.close();
+      // 当前点击元素
+      !this.getRefs('popover', event) && !this.getRefs('contentWrapper', event) && this.close();
     },
 
     open() {
@@ -65,10 +67,10 @@ export default {
     },
   },
 };
-
-
 </script>
 <style lang='scss' scoped>
+$border-radius: 4px;
+$border-color: #fff;
 .popover {
   display: inline-block;
   vertical-align: top;
@@ -76,6 +78,32 @@ export default {
 .content-wrapper {
   position: absolute;
   transform: translateY(-100%);
-  border: 1px solid red;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  box-shadow: 0 0 20px 9px rgba($color: #bbb, $alpha: 0.3);
+  padding: 0.5em 1em;
+  margin-top: -10px;
+  max-width: 20em;
+  background: #fff;
+  word-break: break-all;
+  &::before {
+    content: "";
+    display: block;
+    border: 9px solid transparent;
+    border-top-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: auto;
+  }
+
+  // &::after{
+  //   content: '';
+  //   display: block;
+  //   border: 9px solid transparent;
+  //   border-top-color: #fff;
+  //   position: absolute;
+  //   top: calc(100% - 1px);
+  //   left: auto;
+  // }
 }
 </style>

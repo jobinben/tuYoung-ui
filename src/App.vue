@@ -87,9 +87,9 @@
       >
     </t-row>
 
-    <t-popover>
+    <t-popover style="margin-left: 10px">
       <template slot="content">
-        <div>popover内容</div>
+        <div>this is a popover! sometiems naive.</div>
       </template>
       <t-button>popover</t-button>
     </t-popover>
