@@ -1,6 +1,6 @@
 <!-- author: 大冰 -->
 <template>
-  <div class="popover" @click.stop="onShow">
+  <div class="popover" @click="onClick" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible">
       <slot name="content"></slot>
     </div>
@@ -21,34 +21,52 @@ export default {
   },
 
   mounted() {
-    console.log(this.$refs.triggerWrapper);
   },
 
   methods: {
-    onShow() {
-      this.visible = !this.visible;
-      console.log(1);
-      if (this.visible === true) {
-        this.$nextTick(() => {
-          // 将显示元素移到body尾部去
-          document.body.appendChild(this.$refs.contentWrapper);
-          let { left, top } = this.$refs.triggerWrapper.getBoundingClientRect();
-          // 加上window.scroll 实现精准定位 不会因为滚动了位置不对
-          this.$refs.contentWrapper.style.left = left + window.scrollX +"px";
-          this.$refs.contentWrapper.style.top = top + window.scrollY +"px";
-          // 移除事件
-          let eventHandler = () => {
-            console.log(2);
-            this.visible = false;
-            document.removeEventListener("click", eventHandler);
-          };
+    positionContent() {
+      // 将显示元素移到body尾部去
+      document.body.appendChild(this.$refs.contentWrapper);
+      let { left, top } = this.$refs.triggerWrapper.getBoundingClientRect();
+      // 加上window.scroll 实现精准定位 不会因为滚动了位置不对
+      this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
+      this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
+    },
 
-          document.addEventListener("click", eventHandler);
-        });
+    onClickDocument(event) {
+      if (this.$refs.popover && this.$refs.popover.contains(event.target)) {
+        return;
+      }
+      this.close();
+    },
+
+    open() {
+      // 渲染内容
+      this.visible = true;
+      this.$nextTick(() => {
+        this.positionContent();
+        document.addEventListener("click", this.onClickDocument);
+      });
+    },
+
+    close() {
+      this.visible = false;
+      document.removeEventListener("click", this.onClickDocument);
+    },
+
+    onClick(event) {
+      if (this.$refs.triggerWrapper.contains(event.target)) {
+        if (this.visible) {
+          this.close();
+          return;
+        }
+        this.open();
       }
     },
   },
 };
+
+
 </script>
 <style lang='scss' scoped>
 .popover {
