@@ -1,7 +1,7 @@
 <!-- author: 大冰 -->
 <template>
-  <div class="popover" @click="onShow">
-    <div class="content-wrapper" v-if="visible">
+  <div class="popover" @click.stop="onShow">
+    <div class="content-wrapper" v-if="visible" @click.stop>
       <slot name="content"></slot>
     </div>
     <slot></slot>
