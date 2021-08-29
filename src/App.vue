@@ -1,12 +1,7 @@
 <template>
   <div id="app">
     
-    <t-popover>
-      <template slot="content">
-        <div>popover内容</div>
-      </template>
-      <t-button>popover</t-button>
-    </t-popover>
+    
 
     <t-tabs :selected.sync="selectedTab">
       <!-- <t-tabs :selected="selectedTab" @update:selectedTab="selectedTab=$event"> -->
@@ -91,6 +86,13 @@
         </div></t-col
       >
     </t-row>
+
+    <t-popover>
+      <template slot="content">
+        <div>popover内容</div>
+      </template>
+      <t-button>popover</t-button>
+    </t-popover>
 
     <t-input placeholder="Input"></t-input>
     <t-input value="input value"></t-input>
