@@ -115,6 +115,34 @@
       <t-button>右边</t-button>
     </t-popover>
 
+    <t-popover style="margin-left: 10px" position="top" trigger='hover'>
+      <template slot="content">
+        <div>this is a popover! sometiems naive.</div>
+      </template>
+      <t-button>上面</t-button>
+    </t-popover>
+
+    <t-popover style="margin-left: 10px" position="bottom" trigger='hover'>
+      <template slot="content">
+        <div>this is a popover! sometiems naive.</div>
+      </template>
+      <t-button>下面</t-button>
+    </t-popover>
+
+    <t-popover style="margin-left: 10px" position="left" trigger='hover'>
+      <template slot="content">
+        <div>this is a popover! sometiems naive.</div>
+      </template>
+      <t-button>左边</t-button>
+    </t-popover>
+
+    <t-popover style="margin-left: 10px" position="right" trigger='hover'>
+      <template slot="content">
+        <div>this is a popover! sometiems naive.</div>
+      </template>
+      <t-button>右边</t-button>
+    </t-popover>
+
     <t-input placeholder="Input"></t-input>
     <t-input value="input value"></t-input>
 

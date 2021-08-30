@@ -1,6 +1,6 @@
 <!-- author: 大冰 -->
 <template>
-  <div class="popover" @click="onClick" ref="popover">
+  <div class="popover" ref="popover">
     <div
       ref="contentWrapper"
       class="content-wrapper"
@@ -26,6 +26,12 @@ export default {
       validator: (val) =>
         ["top", "bottom", "left", "right"].indexOf(val) !== -1,
     },
+
+    trigger: {
+      type: String,
+      default: "click",
+      validator: (val) => ["click", "hover"].indexOf(val) !== -1,
+    },
   },
 
   data() {
@@ -34,34 +40,70 @@ export default {
     };
   },
 
-  mounted() {},
+  computed: {
+    openEvent() {
+      if (this.trigger === "click") {
+        return "click";
+      }
+      return "mouseenter";
+    },
+
+    closeEvent() {
+      if (this.trigger === "click") {
+        return "click";
+      }
+      return "mouseleave";
+    },
+  },
+
+  mounted() {
+    // 这里添加的监听事件需要销毁
+    // 因为我们并没有通过vue的@click在元素绑定事件 需要自行destroy
+    if (this.trigger === "click") {
+      this.$refs.popover.addEventListener("click", this.onClick);
+    } else {
+      this.$refs.popover.addEventListener("mouseenter", this.open);
+      this.$refs.popover.addEventListener("mouseleave", this.close);
+    }
+  },
+
+  destroyed() {
+    // 销毁掉事件 防止内存泄漏
+    if (this.trigger === "click") {
+      this.$refs.popover.removeEventListener("click", this.onClick);
+    } else {
+      this.$refs.popover.removeEventListener("mouseenter", this.open);
+      this.$refs.popover.removeEventListener("mouseleave", this.close);
+    }
+  },
 
   methods: {
     positionContent() {
-      const {contentWrapper, triggerWrapper} = this.$refs
+      const { contentWrapper, triggerWrapper } = this.$refs;
       document.body.appendChild(contentWrapper);
-      const { width, height, left, top } = triggerWrapper.getBoundingClientRect();
-      const {height: height2} = contentWrapper.getBoundingClientRect()
+      const { width, height, left, top } =
+        triggerWrapper.getBoundingClientRect();
+      const { height: height2 } = contentWrapper.getBoundingClientRect();
       let positionObject = {
-        top : {
+        top: {
           left: left + window.scrollX,
-          top : top + window.scrollY
+          top: top + window.scrollY,
         },
         bottom: {
           left: left + window.scrollX,
-          top: top + window.scrollY + height
+          top: top + window.scrollY + height,
         },
         left: {
           left: left + window.scrollX,
-          top: top + window.scrollY + (height - height2) / 2
+          top: top + window.scrollY + (height - height2) / 2,
         },
         right: {
           left: left + window.scrollX + width,
-          top: top + window.scrollY + (height - height2) / 2
-        }
-      }
-     contentWrapper.style.left = positionObject[this.position].left + 'px'
-     contentWrapper.style.top = positionObject[this.position].top + 'px'
+          top: top + window.scrollY + (height - height2) / 2,
+        },
+      };
+      contentWrapper.style.left = positionObject[this.position].left + "px";
+      contentWrapper.style.top = positionObject[this.position].top + "px";
     },
 
     getRefs(ref, event) {
@@ -148,18 +190,18 @@ $border-color: #fff;
     }
   }
 
-  &.position-left{
+  &.position-left {
     transform: translateX(-100%);
     margin-left: -10px;
-    &::before{
+    &::before {
       border-left-color: #fff;
       left: 100%;
     }
   }
 
-  &.position-right{
+  &.position-right {
     margin-left: 10px;
-    &::before{
+    &::before {
       border-right-color: #fff;
       right: 100%;
     }
