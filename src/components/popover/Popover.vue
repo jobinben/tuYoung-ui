@@ -39,26 +39,29 @@ export default {
   methods: {
     positionContent() {
       const {contentWrapper, triggerWrapper} = this.$refs
-      // 将显示元素移到body尾部去
       document.body.appendChild(contentWrapper);
-      let { width, height, left, top } =
-        triggerWrapper.getBoundingClientRect();
-      // 加上window.scroll 实现精准定位 不会因为滚动了位置不对
-      if (this.position === "top") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + window.scrollY + "px";
-      } else if (this.position === "bottom") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + window.scrollY + height + "px";
-      } else if (this.position === 'left') {
-        const {height: height2} = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + window.scrollY + (height - height2) / 2 + "px";
-      }else if (this.position === 'right') {
-        const {height: height2} = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.left = left + window.scrollX + width + "px";
-        contentWrapper.style.top = top + window.scrollY + (height - height2) / 2 + "px";
+      const { width, height, left, top } = triggerWrapper.getBoundingClientRect();
+      const {height: height2} = contentWrapper.getBoundingClientRect()
+      let positionObject = {
+        top : {
+          left: left + window.scrollX,
+          top : top + window.scrollY
+        },
+        bottom: {
+          left: left + window.scrollX,
+          top: top + window.scrollY + height
+        },
+        left: {
+          left: left + window.scrollX,
+          top: top + window.scrollY + (height - height2) / 2
+        },
+        right: {
+          left: left + window.scrollX + width,
+          top: top + window.scrollY + (height - height2) / 2
+        }
       }
+     contentWrapper.style.left = positionObject[this.position].left + 'px'
+     contentWrapper.style.top = positionObject[this.position].top + 'px'
     },
 
     getRefs(ref, event) {
