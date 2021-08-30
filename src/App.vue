@@ -87,11 +87,32 @@
       >
     </t-row>
 
-    <t-popover style="margin-left: 10px">
+    <t-popover style="margin-left: 10px" position="top">
       <template slot="content">
         <div>this is a popover! sometiems naive.</div>
       </template>
-      <t-button>popover</t-button>
+      <t-button>上面</t-button>
+    </t-popover>
+
+    <t-popover style="margin-left: 10px" position="bottom">
+      <template slot="content">
+        <div>this is a popover! sometiems naive.</div>
+      </template>
+      <t-button>下面</t-button>
+    </t-popover>
+
+    <t-popover style="margin-left: 10px" position="left">
+      <template slot="content">
+        <div>this is a popover! sometiems naive.</div>
+      </template>
+      <t-button>左边</t-button>
+    </t-popover>
+
+    <t-popover style="margin-left: 10px" position="right">
+      <template slot="content">
+        <div>this is a popover! sometiems naive.</div>
+      </template>
+      <t-button>右边</t-button>
     </t-popover>
 
     <t-input placeholder="Input"></t-input>
