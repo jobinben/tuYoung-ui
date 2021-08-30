@@ -57,27 +57,35 @@ export default {
   },
 
   mounted() {
-    // 这里添加的监听事件需要销毁
-    // 因为我们并没有通过vue的@click在元素绑定事件 需要自行destroy
-    if (this.trigger === "click") {
-      this.$refs.popover.addEventListener("click", this.onClick);
-    } else {
-      this.$refs.popover.addEventListener("mouseenter", this.open);
-      this.$refs.popover.addEventListener("mouseleave", this.close);
-    }
+    this.addPopoverListeners()
   },
 
-  destroyed() {
-    // 销毁掉事件 防止内存泄漏
-    if (this.trigger === "click") {
-      this.$refs.popover.removeEventListener("click", this.onClick);
-    } else {
-      this.$refs.popover.removeEventListener("mouseenter", this.open);
-      this.$refs.popover.removeEventListener("mouseleave", this.close);
-    }
+  beforeDestroy() {
+    this.removePopoverListeners()
   },
 
   methods: {
+    addPopoverListeners() {
+      // 这里添加的监听事件需要销毁
+      // 因为我们并没有通过vue的@click在元素绑定事件 需要自行destroy
+      if (this.trigger === "click") {
+        this.$refs.popover.addEventListener("click", this.onClick);
+      } else {
+        this.$refs.popover.addEventListener("mouseenter", this.open);
+        this.$refs.popover.addEventListener("mouseleave", this.close);
+      }
+    },
+
+    removePopoverListeners() {
+      // 销毁掉事件 防止内存泄漏
+      if (this.trigger === "click") {
+        this.$refs.popover.removeEventListener("click", this.onClick);
+      } else {
+        this.$refs.popover.removeEventListener("mouseenter", this.open);
+        this.$refs.popover.removeEventListener("mouseleave", this.close);
+      }
+    },
+
     positionContent() {
       const { contentWrapper, triggerWrapper } = this.$refs;
       document.body.appendChild(contentWrapper);
