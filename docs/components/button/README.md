@@ -8,8 +8,9 @@ title: 按钮 Button
 ## 基础用法
 
 按钮的 `type` 分别为 `default`、`primary`、`info`、`success`、`warning` 和 `error`。
-
+<ClientOnly>
 <Button-demo/>
+</ClientOnly>
 
 ```vue
     <t-button>Default</t-button>
@@ -22,7 +23,9 @@ title: 按钮 Button
 
 ## 图标
 在按钮上使用图标。
+<ClientOnly>
 <Button-icon-demo/>
+</ClientOnly>
 
 ```vue
     <t-button icon="awesome">左赞</t-button>
@@ -36,7 +39,9 @@ title: 按钮 Button
 
 ## 加载中
 点击按钮后进行数据加载操作，在按钮上显示加载状态。
+<ClientOnly>
 <Button-loading-demo/>
+</ClientOnly>
 ```vue
     <t-button :loading="!status" @click="status = !status">Loading</t-button>
     <t-button :loading="!status2" @click="status2 = !status2" iconPosition="right">Loading</t-button>
@@ -45,7 +50,9 @@ title: 按钮 Button
 
 ## 按钮组
 可以把几个按钮结合成按钮组。
+<ClientOnly>
 <Button-group-demo/>
+</ClientOnly>
 ```vue
       <t-button-group>
         <t-button icon="left">Back</t-button>
@@ -63,10 +70,10 @@ title: 按钮 Button
 
 ### Button Props
 
-| 名称 | 类型 | 可选值 |默认值 | 说明 |
-| --- | --- | --- | --- | --- |
-| icon | `string` | `参考t-icon组件`| `null` | 按钮图标 |
-| iconPosition|`string` | `left` \| `right`  | `left`| 按钮图标的位置 | 
-| loading | `boolean` | `true |false`  |`false` | 按钮是否显示加载状态|
-| type | `string` |`default` \| `primary` \| `success` \| `info` \| `warning` \| `error` | `default`  | 按钮的类型 |
+| 名称         | 类型      | 可选值                                                                | 默认值    | 说明                 |
+| ------------ | --------- | --------------------------------------------------------------------- | --------- | -------------------- |
+| icon         | `string`  | `参考t-icon组件`                                                      | `null`    | 按钮图标             |
+| iconPosition | `string`  | `left` \| `right`                                                     | `left`    | 按钮图标的位置       |
+| loading      | `boolean` | `true |false`                                                         | `false`   | 按钮是否显示加载状态 |
+| type         | `string`  | `default` \| `primary` \| `success` \| `info` \| `warning` \| `error` | `default` | 按钮的类型           |
 
