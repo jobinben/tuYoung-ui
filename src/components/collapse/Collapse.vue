@@ -15,13 +15,11 @@ export default {
       type: Boolean,
       default: false,
     },
+    selected: {
+        type:String
+    }
   },
 
-  data() {
-    return {
-      eventBus: new Vue(),
-    };
-  },
   provide() {
     if (this.single) {
       return {
@@ -29,6 +27,23 @@ export default {
       };
     }
   },
+
+  data() {
+    return {
+      eventBus: new Vue(),
+    };
+  },
+  
+  mounted() {
+      this.emitEventBus()
+  },
+
+  methods: {
+      emitEventBus() {
+          this.eventBus.$emit('update:selected', this.selected)
+      }
+  }
+
 };
 </script>
 <style lang='scss' scoped>
