@@ -28,27 +28,31 @@ export default {
   },
 
   mounted() {
-      this. eventBus && this.eventBus.$on('update:selected', (vm) => {
-          if(vm !== this) {
-              this.close()
-          }
-      })
+      this.onEventBus()
   },
   methods: {
-
-      toggle() {
-          if(this.open) {
-              this.open = false
-          }else {
-              this.open = true
-             this.eventBus && this.eventBus.$emit('update:selected', this)
+    onEventBus() {
+      this.eventBus &&
+        this.eventBus.$on("update:selected", (vm) => {
+          if (vm !== this) {
+            this.close();
           }
-      },
+        });
+    },
 
-      close() {
-          this.open = false
+    toggle() {
+      if (this.open) {
+        this.open = false;
+      } else {
+        this.open = true;
+        this.eventBus && this.eventBus.$emit("update:selected", this);
       }
-  }
+    },
+
+    close() {
+      this.open = false;
+    },
+  },
 };
 </script>
 <style lang='scss' scoped>

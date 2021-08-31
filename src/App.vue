@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <t-collapse style="margin: 5em;">
+    <t-collapse style="margin: 5em;" single>
       <t-collapse-item title="标题1">内容1</t-collapse-item>
       <t-collapse-item title="标题2">内容2</t-collapse-item>
       <t-collapse-item title="标题3">内容3</t-collapse-item>
