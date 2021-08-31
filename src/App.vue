@@ -1,5 +1,12 @@
 <template>
   <div id="app">
+
+    <t-collapse style="margin: 5em;">
+      <t-collapse-item title="标题1">内容1</t-collapse-item>
+      <t-collapse-item title="标题2">内容2</t-collapse-item>
+      <t-collapse-item title="标题3">内容3</t-collapse-item>
+      <t-collapse-item title="标题4">内容4</t-collapse-item>
+    </t-collapse>
     
     
 
@@ -217,7 +224,9 @@ import TTabsBody from "./components/tabs/tabs-body.vue";
 import TTabsHead from "./components/tabs/tabs-head.vue";
 import TTabsItem from "./components/tabs/tabs-item.vue";
 import TTabsPane from "./components/tabs/tabs-pane.vue";
-import TPopover from "./components/popover/Popover.vue"
+import TPopover from "./components/popover/Popover.vue";
+import TCollapse from "./components/collapse/Collapse.vue"
+import TCollapseItem from "./components/collapse/CollapseItem.vue"
 
 export default {
   name: "App",
@@ -233,7 +242,9 @@ export default {
     TTabsHead,
     TTabsItem,
     TTabsPane,
-    TPopover
+    TPopover,
+    TCollapse,
+    TCollapseItem
   },
 
   data() {
