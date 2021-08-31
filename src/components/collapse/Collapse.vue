@@ -16,16 +16,14 @@ export default {
       default: false,
     },
     selected: {
-        type:String
-    }
+      type: Array,
+    },
   },
 
   provide() {
-    if (this.single) {
-      return {
-        eventBus: this.eventBus,
-      };
-    }
+    return {
+      eventBus: this.eventBus,
+    };
   },
 
   data() {
@@ -33,17 +31,40 @@ export default {
       eventBus: new Vue(),
     };
   },
-  
+
   mounted() {
-      this.emitEventBus()
+    this.emitEventBus();
   },
 
   methods: {
-      emitEventBus() {
-          this.eventBus.$emit('update:selected', this.selected)
-      }
-  }
+    emitEventBus() {
+      // 初始化默认选项
+      this.eventBus.$emit("update:selected", this.selected);
+      // 接收item传递过来的事件
+      this.eventBus.$on('update:addSelected', (name) => {
+          console.log('add')
+          let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+          if(this.single) {
+              selectedCopy = [name]
+          }else {
+              selectedCopy.push(name)
+          }
 
+          this.eventBus.$emit('update:selected', selectedCopy)
+          this.$emit('update:selected', selectedCopy)
+      })
+      // 接收item传递，移除selected
+      this.eventBus.$on('update:removeSelected', (name) => {
+          console.log('remove')
+          let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+          let index = selectedCopy.indexOf(name)
+          selectedCopy.splice(index, 1)
+          this.eventBus.$emit('update:selected', selectedCopy)
+          this.$emit('update:selected', selectedCopy)
+      })
+
+    },
+  },
 };
 </script>
 <style lang='scss' scoped>
