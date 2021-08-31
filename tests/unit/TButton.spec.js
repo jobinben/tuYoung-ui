@@ -45,45 +45,60 @@ describe('Button', () => {
         vm.$destroy()
     })
 
-    xit('icon 默认 order is 1.', () => {
-        const div = document.createElement('div')
-        document.body.appendChild(div)
+    it('icon 默认 order is 1.', () => {
+        // const div = document.createElement('div')
+        // document.body.appendChild(div)
 
-        const Construtor = Vue.extend(Button)
-        const vm = new Construtor({
-            propsData: {
-                icon: 'settings',
+        // const Construtor = Vue.extend(Button)
+        // const vm = new Construtor({
+        //     propsData: {
+        //         icon: 'settings',
+        //     }
+        // }).$mount(div)
+
+        // let svg = vm.$el.querySelector('svg')
+        // let { order } = window.getComputedStyle(svg)
+
+        // expect(order).to.eq('1')
+        // // 测试完后销毁div
+        // vm.$el.remove()
+        // vm.$destroy()
+        const wrapper = mount(Button, {
+            propsData:{
+                icon: 'settings'
             }
-        }).$mount(div)
-
-        let svg = vm.$el.querySelector('svg')
-        let { order } = window.getComputedStyle(svg)
-
-        expect(order).to.eq('1')
-        // 测试完后销毁div
-        vm.$el.remove()
-        vm.$destroy()
+        })
+        expect(wrapper.find('.t-button').classes()).to.include('icon-left')
+        wrapper.destroy()
     })
 
-    xit('设置 iconPosition 可以改变 order', () => {
-        const div = document.createElement('div')
-        document.body.appendChild(div)
+    it('设置 iconPosition 可以改变 order', () => {
+        // const div = document.createElement('div')
+        // document.body.appendChild(div)
 
-        const Construtor = Vue.extend(Button)
-        const vm = new Construtor({
-            propsData: {
+        // const Construtor = Vue.extend(Button)
+        // const vm = new Construtor({
+        //     propsData: {
+        //         icon: 'settings',
+        //         iconPosition: 'right'
+        //     }
+        // }).$mount(div)
+
+        // let svg = vm.$el.querySelector('svg')
+        // let { order } = window.getComputedStyle(svg)
+
+        // expect(order).to.eq('2')
+        // // 测试完后销毁div
+        // vm.$el.remove()
+        // vm.$destroy()
+        const wrapper = mount(Button, {
+            propsData:{
                 icon: 'settings',
                 iconPosition: 'right'
             }
-        }).$mount(div)
-
-        let svg = vm.$el.querySelector('svg')
-        let { order } = window.getComputedStyle(svg)
-
-        expect(order).to.eq('2')
-        // 测试完后销毁div
-        vm.$el.remove()
-        vm.$destroy()
+        })
+        expect(wrapper.find('.t-button').classes()).to.include('icon-right')
+        wrapper.destroy()
     })
 
     it('点击 t-button 触发 click事件', () => {
