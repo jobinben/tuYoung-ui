@@ -2,7 +2,7 @@
 <template>
   <div class="collapseItem">
     <div class="title" @click="toggle">
-      {{ title }}
+      {{title}}
     </div>
     <div class="content" v-if="open">
       <slot></slot>

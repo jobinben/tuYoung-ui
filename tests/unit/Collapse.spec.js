@@ -20,10 +20,4 @@ describe('Collapse:', () => { // 检测元素
     })
 
 
-
-    describe('Props', () => {
-       
-
-    })
-
 })
