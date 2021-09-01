@@ -44,6 +44,7 @@ module.exports = {
                         '/components/input/',
                         '/components/tabs/',
                         '/components/toast/',
+                        '/components/collapse/'
                     ],
     
                 }

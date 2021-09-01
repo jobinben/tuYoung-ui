@@ -15,7 +15,7 @@ basic
 | 名称 | 类型 | 可选值 | 默认值 | 说明 |
 | --- | --- | --- |  --- | --- |
 | single | `boolean`| `true` \| `false` | `false`  | 是否只允许展开一个面板 |
-| selected | `array` |`*` | `null` | 选择展开的面板 |
+| selected | `array` |`*` | `[]` | 选择展开的面板 |
 
 ### CollapseItem Props
 
