@@ -31,6 +31,7 @@
         <t-tabs-pane name="stack"> 全栈圈子 </t-tabs-pane>
       </t-tabs-body>
     </t-tabs>
+    
 
     <t-row>
       <t-col span="24" :ipad="{ span: 12 }" :narrowPc="{ span: 8 }">
@@ -207,6 +208,25 @@
         >
       </t-button-group>
     </div>
+    <t-tabs :selected.sync="selectedTab">
+      <!-- <t-tabs :selected="selectedTab" @update:selectedTab="selectedTab=$event"> -->
+
+      <t-tabs-head>
+        <template slot="actions">
+          <t-button>设置</t-button>
+        </template>
+        <t-tabs-item name="front"><t-icon name="settings"></t-icon> 前端 </t-tabs-item>
+        <t-tabs-item name="back" disabled> 后端 </t-tabs-item>
+        <t-tabs-item name="stack"> 全栈 </t-tabs-item>
+        
+      </t-tabs-head>
+
+      <t-tabs-body>
+        <t-tabs-pane name="front"> 前端路线 </t-tabs-pane>
+        <t-tabs-pane name="back"> 后端战略 </t-tabs-pane>
+        <t-tabs-pane name="stack"> 全栈圈子 </t-tabs-pane>
+      </t-tabs-body>
+    </t-tabs>
 
     <!-- <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
