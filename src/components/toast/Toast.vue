@@ -141,6 +141,7 @@ $toast-border-radius: 4px;
 }
 
 .wrapper {
+  z-index: 100;
   position: fixed;
   left: 50%;
   $delay: .7s;
