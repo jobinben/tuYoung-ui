@@ -12,7 +12,6 @@
 
 <script>
 import TButton from "../../../../src/components/button/Button.vue";
-import "../../../../src/components/svg";
 export default {
   components: {
     TButton,

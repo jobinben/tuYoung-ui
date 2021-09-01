@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    
+    <t-icon name="settings"></t-icon> 
 
     <t-collapse style="margin: 5em;"  :selected.sync="selectedTab2">
       <t-collapse-item title="标题1" name="1">内容1</t-collapse-item>
@@ -246,6 +248,7 @@ export default {
     TCollapse,
     TCollapseItem
   },
+
 
   data() {
     return {

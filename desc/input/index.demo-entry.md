@@ -10,7 +10,7 @@ basic
 
 ## Props
 
-### Button Props
+### Input Props
 
 | 名称 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |

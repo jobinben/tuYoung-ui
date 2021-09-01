@@ -2,10 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 // import Button from './components/Button.vue'
 import Icon from './components/icon/Icon.vue'
+console.log(Icon.name)
 // import ButtonGroup from './components/ButtonGroup.vue'
 
 // Vue.component('t-button', Button)
-Vue.component('t-icon', Icon)
+Vue.component(Icon.name, Icon)
 // Vue.component('t-button-group', ButtonGroup)
 
 import ToastPlugin from "./components/toast/toastPlugin"

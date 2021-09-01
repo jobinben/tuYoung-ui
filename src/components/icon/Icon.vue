@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "tuYoungIcon",
+    name: "t-icon",
     props: ['name']
 }
 </script>

@@ -5,7 +5,7 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: '主页', link: '/' },
-            { text: '文档', link: '/guide/introduce/' },
+            { text: '文档', link: '/guide/' },
             { text: '组件', link: '/components/' },
             { text: '交流', link: 'https://github.com/jobinben/tuYoung-ui' },
 
@@ -40,7 +40,8 @@ module.exports = {
                     title: '组件',
                     collapsable: false,
                     children: [
-                      '/components/button/',
+                        '/components/button/',
+                        '/components/input/'
                     ],
     
                 }
