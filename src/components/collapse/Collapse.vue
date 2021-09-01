@@ -17,6 +17,9 @@ export default {
     },
     selected: {
       type: Array,
+      default(){
+        return []
+      },
     },
   },
 
