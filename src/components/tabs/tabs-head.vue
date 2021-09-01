@@ -1,7 +1,7 @@
 <template>
-  <div class="tabsHead">
+  <div class="tabsHead" ref="head">
     <slot></slot>
-    <div class="line" ref="line" v-show="showLine"></div>
+    <div class="line" ref="line"></div>
     <div class="actions-wrapper">
       <slot name="actions"></slot>
     </div>
@@ -14,25 +14,25 @@ export default {
   inject: ["eventBus"],
   data() {
     return {
-      showLine: false,
     };
   },
 
   mounted() {
-    this.onUpdate()
+    this.eventBus.$on('update:selected', (item, vm) => {
+        this.updateLinePosition(vm)
+      })
   },
 
   methods: {
     
-    onUpdate() {
-      this.eventBus.$on("update:selected", (name, vm) => {
-        this.showLine = true;
-        let { width, left } = vm.$el.getBoundingClientRect();
-        this.$refs.line.style.width = `${width}px`;
-        // this.$refs.line.style.left = `${left}px`
-        this.$refs.line.style.transform = `translateX(${left}px)`;
-      });
-    },
+   
+
+     updateLinePosition (selectedVm) {
+        let {width, left} = selectedVm.$el.getBoundingClientRect()
+        let {left: left2} = this.$refs.head.getBoundingClientRect()
+        this.$refs.line.style.width = `${width}px`
+        this.$refs.line.style.left = `${left - left2}px`
+      }
 
   },
 
