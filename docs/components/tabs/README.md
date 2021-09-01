@@ -81,17 +81,17 @@ title: 标签页 Tabs
 ```vue
 <t-tabs :selected.sync="selectedTab">
     <t-tabs-head>
-    <template slot="actions">
-        <t-button>设置</t-button>
-    </template>
-    <t-tabs-item name="front">前端 </t-tabs-item>
-    <t-tabs-item name="back"> 后端 </t-tabs-item>
-    <t-tabs-item name="stack"> 全栈 </t-tabs-item>
+        <template slot="actions">
+            <t-button>设置</t-button>
+        </template>
+        <t-tabs-item name="front">前端 </t-tabs-item>
+        <t-tabs-item name="back"> 后端 </t-tabs-item>
+        <t-tabs-item name="stack"> 全栈 </t-tabs-item>
     </t-tabs-head>
     <t-tabs-body>
-    <t-tabs-pane name="front"> 前端路线 </t-tabs-pane>
-    <t-tabs-pane name="back"> 后端战略 </t-tabs-pane>
-    <t-tabs-pane name="stack"> 全栈圈子 </t-tabs-pane>
+        <t-tabs-pane name="front"> 前端路线 </t-tabs-pane>
+        <t-tabs-pane name="back"> 后端战略 </t-tabs-pane>
+        <t-tabs-pane name="stack"> 全栈圈子 </t-tabs-pane>
     </t-tabs-body>
 </t-tabs>
 ```
@@ -100,21 +100,21 @@ title: 标签页 Tabs
 
 ### Tabs Props
 
-| 名称 | 类型 | 可选值 | 默认值 | 说明 |
-| --- | --- | --- |  --- | --- |
-| selected | `string`| `*`| `''`  | 必填，当前激活的tab 面板 |
+| 名称     | 类型     | 可选值 | 默认值 | 说明                     |
+| -------- | -------- | ------ | ------ | ------------------------ |
+| selected | `string` | `*`    | `''`   | 必填，当前激活的tab 面板 |
 
 
 ### TabsItem Props
 
-| 名称 | 类型 | 可选值 | 默认值 | 说明 |
-| --- | --- | --- |  --- | --- |
-| name | `string` \| `number`| `*`| `''`  | 必填，标签的名称|
-| disabled | `boolean`| `*`| `false`  | 是否禁用|
+| 名称     | 类型                 | 可选值 | 默认值  | 说明             |
+| -------- | -------------------- | ------ | ------- | ---------------- |
+| name     | `string` \| `number` | `*`    | `''`    | 必填，标签的名称 |
+| disabled | `boolean`            | `*`    | `false` | 是否禁用         |
 
 
 ### TabsPane Props
 
-| 名称 | 类型 | 可选值 | 默认值 | 说明 |
-| --- | --- | --- |  --- | --- |
-| name | `string` \| `number`| `*`| `''`  | 必填，标签的名称|
+| 名称 | 类型                 | 可选值 | 默认值 | 说明             |
+| ---- | -------------------- | ------ | ------ | ---------------- |
+| name | `string` \| `number` | `*`    | `''`   | 必填，标签的名称 |

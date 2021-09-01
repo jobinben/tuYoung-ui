@@ -22,5 +22,10 @@ basic
 | --- | --- | --- | --- | --- |
 | span |  `number`  |`1~24` |`undefined`  | 栅格占据的列数 |
 | offset | `number`| `*` |`0` | 栅格左侧的间隔格数 |
+| ipad | `object`| `{span, offset}` |`null` | `屏幕 > 576px` 响应式栅格 |
+| narrowPc | `object`| `{span, offset}` |`null` | `屏幕 > 768px` 响应式栅格 |
+| pc | `object`| `{span, offset}` |`null` | `屏幕 > 992px` 响应式栅格 |
+| widePc | `object`| `{span, offset}` |`null` | `屏幕 > 1200px` 响应式栅格 |
+
 
     
