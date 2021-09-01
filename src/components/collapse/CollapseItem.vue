@@ -47,10 +47,8 @@ export default {
 
     toggle() {
       if (this.open) {
-        console.log("open");
         this.eventBus.$emit("update:removeSelected", this.name);
       } else {
-        console.log("close");
         this.eventBus.$emit("update:addSelected", this.name);
       }
     },

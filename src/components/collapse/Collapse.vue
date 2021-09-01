@@ -45,7 +45,6 @@ export default {
       this.eventBus.$emit("update:selected", this.selected);
       // 接收item传递过来的事件
       this.eventBus.$on('update:addSelected', (name) => {
-          console.log('add')
           let selectedCopy = JSON.parse(JSON.stringify(this.selected))
           if(this.single) {
               selectedCopy = [name]
@@ -58,7 +57,6 @@ export default {
       })
       // 接收item传递，移除selected
       this.eventBus.$on('update:removeSelected', (name) => {
-          console.log('remove')
           let selectedCopy = JSON.parse(JSON.stringify(this.selected))
           let index = selectedCopy.indexOf(name)
           selectedCopy.splice(index, 1)
