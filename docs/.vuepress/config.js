@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/tuYoung-ui/',
+    base: '/',
     title: 'tuYoung UI',
     description: '一个基于Vue.2x的UI框架',
     themeConfig: {
