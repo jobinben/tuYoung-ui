@@ -1,6 +1,6 @@
 <!-- author: 大冰 -->
 <template>
-  <div>
+  <div style="padding:1em;">
     <t-button>Default</t-button>
     <t-button type="primary">Primary</t-button>
     <t-button type="info">Info</t-button>

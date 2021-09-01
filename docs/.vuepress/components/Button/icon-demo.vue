@@ -1,6 +1,6 @@
 <!-- author: 大冰 -->
 <template>
-  <div>
+  <div  style="padding:1em;">
     <t-button icon="awesome">左赞</t-button>
     <t-button icon="awesome" iconPosition="right">右赞</t-button>
     <t-button icon="settings">设置</t-button>

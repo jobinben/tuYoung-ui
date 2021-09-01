@@ -1,6 +1,6 @@
 <!-- author: 大冰 -->
 <template>
-  <div>
+  <div  style="padding:1em;">
     <t-button-group>
         <t-button icon="left">Back</t-button>
         <t-button>More</t-button>

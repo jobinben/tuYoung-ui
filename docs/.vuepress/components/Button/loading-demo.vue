@@ -1,6 +1,6 @@
 <!-- author: 大冰 -->
 <template>
-  <div>
+  <div  style="padding:1em;">
     <t-button :loading="!status" @click="status = !status">左加载</t-button>
     <t-button :loading="!status2" @click="status2 = !status2" iconPosition="right">右加载</t-button>
     <t-button :loading="!status3" @click="status3 = !status3" icon="success">有图标的加载</t-button>
