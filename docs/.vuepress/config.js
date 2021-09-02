@@ -47,7 +47,8 @@ module.exports = {
                         '/components/collapse/',
                         '/components/popover/',
                         '/components/grid/',
-                        '/components/layout/'
+                        '/components/layout/',
+                        '/components/icon/',
                     ],
     
                 }
