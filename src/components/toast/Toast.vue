@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "tuYoungToast",
+  name: "TToast",
   props: {
     title: {
       type: String,

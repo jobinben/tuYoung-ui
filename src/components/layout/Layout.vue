@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "tuYoungLayout",
+  name: "TLayout",
 
   data() {
     return {

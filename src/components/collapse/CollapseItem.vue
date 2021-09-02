@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "tuYoungCollapseItem",
+  name: "TCollapseItem",
   inject: ["eventBus"],
   props: {
     title: {

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "tuYoungTabsBody"
+  name: "TTabsBody"
 }
 </script>
 

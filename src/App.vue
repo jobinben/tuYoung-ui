@@ -12,7 +12,7 @@
     
     {{selectedTab2}}
 
-    <t-tabs :selected.sync="selectedTab">
+    <t-tabs selected="stack">
       <!-- <t-tabs :selected="selectedTab" @update:selectedTab="selectedTab=$event"> -->
 
       <t-tabs-head>
@@ -33,69 +33,7 @@
     </t-tabs>
     
 
-    <t-row>
-      <t-col span="24" :ipad="{ span: 12 }" :narrowPc="{ span: 8 }">
-        <div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div>
-      </t-col>
-      <t-col span="24" :ipad="{ span: 12 }" :narrowPc="{ span: 8 }">
-        <div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div>
-      </t-col>
-      <t-col span="24" :ipad="{ span: 12 }" :narrowPc="{ span: 8 }">
-        <div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div>
-      </t-col>
-      <t-col span="24" :ipad="{ span: 12 }" :narrowPc="{ span: 8 }">
-        <div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div>
-      </t-col>
-      <t-col span="24" :ipad="{ span: 12 }" :narrowPc="{ span: 8 }">
-        <div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div>
-      </t-col>
-      <t-col span="24" :ipad="{ span: 12 }" :narrowPc="{ span: 8 }">
-        <div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div>
-      </t-col>
-    </t-row>
-
-    <t-row>
-      <t-col span="12"
-        ><div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div></t-col
-      >
-      <t-col span="12"
-        ><div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div></t-col
-      >
-    </t-row>
-
-    <t-row align="center">
-      <t-col span="4"
-        ><div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div></t-col
-      >
-      <t-col span="4"
-        ><div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div></t-col
-      >
-      <t-col span="4"
-        ><div style="background: skyblue; border: 1px solid red; height: 100px">
-          1
-        </div></t-col
-      >
-    </t-row>
+   
 
     <t-popover style="margin-left: 10px" position="top">
       <template slot="content">
@@ -235,38 +173,36 @@
 
 <script>
 import "./components/svg";
-import HelloWorld from "./components/HelloWorld.vue";
-import TButton from "./components/button/Button.vue";
-import TButtonGroup from "./components/button/ButtonGroup.vue";
-import TInput from "./components/input/Input.vue";
-import TRow from "./components/grid/Row.vue";
-import TCol from "./components/grid/Column.vue";
-import TTabs from "./components/tabs/tabs.vue";
-import TTabsBody from "./components/tabs/tabs-body.vue";
-import TTabsHead from "./components/tabs/tabs-head.vue";
-import TTabsItem from "./components/tabs/tabs-item.vue";
-import TTabsPane from "./components/tabs/tabs-pane.vue";
-import TPopover from "./components/popover/Popover.vue";
-import TCollapse from "./components/collapse/Collapse.vue"
-import TCollapseItem from "./components/collapse/CollapseItem.vue"
+import Button from "./components/button/Button.vue";
+import ButtonGroup from "./components/button/ButtonGroup.vue";
+import Input from "./components/input/Input.vue";
+import Row from "./components/grid/Row.vue";
+import Col from "./components/grid/Column.vue";
+import Tabs from "./components/tabs/tabs.vue";
+import TabsBody from "./components/tabs/tabs-body.vue";
+import TabsHead from "./components/tabs/tabs-head.vue";
+import TabsItem from "./components/tabs/tabs-item.vue";
+import TabsPane from "./components/tabs/tabs-pane.vue";
+import Popover from "./components/popover/Popover.vue";
+import Collapse from "./components/collapse/Collapse.vue"
+import CollapseItem from "./components/collapse/CollapseItem.vue"
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
-    TButton,
-    TButtonGroup,
-    TInput,
-    TRow,
-    TCol,
-    TTabs,
-    TTabsBody,
-    TTabsHead,
-    TTabsItem,
-    TTabsPane,
-    TPopover,
-    TCollapse,
-    TCollapseItem
+    [Button.name]: Button,
+    [ButtonGroup.name]:ButtonGroup,
+    [Input.name]:Input,
+    [Row.name]:Row,
+    [Col.name]:Col,
+    [Tabs.name]:Tabs,
+    [TabsBody.name]:TabsBody,
+    [TabsHead.name]:TabsHead,
+    [TabsItem.name]:TabsItem,
+    [TabsPane.name]:TabsPane,
+    [Popover.name]:Popover,
+    [Collapse.name]:Collapse,
+    [CollapseItem.name]:CollapseItem
   },
 
 

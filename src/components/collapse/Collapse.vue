@@ -8,7 +8,7 @@
 <script>
 import Vue from "vue";
 export default {
-  name: "tuYoungCollapse",
+  name: "TCollapse",
 
   props: {
     single: {

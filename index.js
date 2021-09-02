@@ -1,9 +1,12 @@
-import TButton from "./src/components/button/Button"
-import TButtonGroup from "./src/components/button/ButtonGroup"
-import TIcon from "./src/components/icon/Icon"
+import Button from "./src/components/button/Button"
+import ButtonGroup from "./src/components/button/ButtonGroup"
+import Collapse from "./src/components/collapse/Collapse"
+import CollapseItem from "./src/components/collapse/CollapseItem"
+
+import Icon from "./src/components/icon/Icon"
 
 export {
-    TButton,
+    Button,
     TButtonGroup,
-    TIcon
+    Icon
 }

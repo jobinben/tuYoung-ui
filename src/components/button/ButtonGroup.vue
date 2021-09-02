@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "tuYoungButtonGroup",
+  name: "TButtonGroup",
   mounted() {
     // 检测子元素是不是全是button
     for (let node of this.$el.children) {

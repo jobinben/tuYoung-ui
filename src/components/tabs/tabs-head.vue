@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "tuYoungTabsHead",
+  name: "TTabsHead",
   inject: ["eventBus"],
   data() {
     return {

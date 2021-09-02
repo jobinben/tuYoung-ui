@@ -16,7 +16,7 @@
 <script>
 import Icon from "../icon/Icon.vue";
 export default {
-  name: "tuYoungButton",
+  name: "TButton",
   components: {
     "t-icon": Icon,
   },

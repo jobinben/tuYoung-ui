@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name:"tuYoungFooter"
+  name:"TFooter"
 }
 </script>
 

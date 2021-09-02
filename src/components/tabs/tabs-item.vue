@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "tuYoungTabsItem",
+  name: "TTabsItem",
 
   // 注入创建的事件中心
   inject: ["eventBus"],

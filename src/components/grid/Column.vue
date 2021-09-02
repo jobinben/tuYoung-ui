@@ -15,7 +15,7 @@ let validator = (val) => {
 };
 
 export default {
-  name: "tuYoungColumn",
+  name: "TColumn",
   props: {
     span: {
       type: [Number, String],

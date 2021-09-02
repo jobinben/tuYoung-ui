@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "tuYoungTabsPane",
+  name: "TTabsPane",
   inject: ['eventBus'],
   props: {
     name: {

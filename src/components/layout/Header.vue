@@ -7,7 +7,7 @@
 
 <script>
 export default {
-name: "tuYoungHeader"
+name: "THeader"
 }
 </script>
 
