@@ -18,8 +18,42 @@ import TabsBody from "./src/components/tabs/tabs-body"
 import TabsItem from "./src/components/tabs/tabs-item"
 import TabsPane from "./src/components/tabs/tabs-pane"
 import ToastPlugin from "./src/components/toast/toastPlugin"
+import { component } from "vue/types/umd"
 
-export {
+const components = [
+    Button,
+    ButtonGroup,
+    Collapse,
+    CollapseItem,
+    Column,
+    Row,
+    Icon,
+    Input,
+    Layout,
+    Header,
+    Content,
+    Footer,
+    Sider,
+    Popover,
+    Tabs,
+    TabsHead,
+    TabsBody,
+    TabsItem,
+    TabsPane,
+    ToastPlugin
+]
+
+const install = function (Vue, opt = {}) {
+    components.forEach(component => {
+      Vue.component(component.name, component);
+    });
+};
+
+if (typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+}
+
+export default{
     Button,
     ButtonGroup,
     Collapse,

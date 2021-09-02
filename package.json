@@ -1,6 +1,6 @@
 {
   "name": "tuyoung",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "这是一个ui框架",
   "main": "index.js",
   "scripts": {
