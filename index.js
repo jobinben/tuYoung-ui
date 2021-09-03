@@ -18,8 +18,6 @@ import TabsBody from "./src/components/tabs/tabs-body"
 import TabsItem from "./src/components/tabs/tabs-item"
 import TabsPane from "./src/components/tabs/tabs-pane"
 import ToastPlugin from "./src/components/toast/toastPlugin"
-import { component } from "vue/types/umd"
-
 const components = [
     Button,
     ButtonGroup,
@@ -39,21 +37,30 @@ const components = [
     TabsHead,
     TabsBody,
     TabsItem,
-    TabsPane,
-    ToastPlugin
+    TabsPane
 ]
 
 const install = function (Vue, opt = {}) {
     components.forEach(component => {
-      Vue.component(component.name, component);
-    });
-};
+        Vue.component(component.name, component)
+    })
+    Vue.use(ToastPlugin)
+}
+
+
+components.forEach(component => {
+    component.install = (Vue, opt) => {
+        Vue.component(component.name, component)
+    }
+})
 
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
 
-export default{
+export default install
+
+export {
     Button,
     ButtonGroup,
     Collapse,
