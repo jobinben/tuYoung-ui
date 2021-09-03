@@ -19,7 +19,7 @@ export default {
   mounted() {
     console.log(this.$children);
     this.$children.forEach((vm) => {
-      if (vm.$options.name === "tuYoungSider") {
+      if (vm.$options.name === "TSider") {
         this.layoutClasses.hasSider = true;
       }
     });
