@@ -25,10 +25,11 @@ module.exports = {
                             ]
                         },
                         {
-                            title: '快速上手',
+                            title: '指南',
                             collapsable: false,
                             children: [
                                 '/guide/get-started/',
+                                '/guide/get01/',
                             ]
                         },
                        
