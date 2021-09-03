@@ -13,6 +13,8 @@ title: 图标 Icon
 <Icon-demo/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <t-icon name="error"></t-icon>
 <t-icon name="success"></t-icon>
@@ -20,6 +22,7 @@ title: 图标 Icon
 <t-icon name="right"></t-icon>
 <t-icon name="awesome"></t-icon>
 ```
+:::
 
 ## 矢量图标集合
 

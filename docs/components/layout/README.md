@@ -23,6 +23,7 @@ title: 布局 Layout
 <Layout-demo/>
 </ClientOnly>
 
+::: details 点击查看代码
 
 ```vue
 <t-layout class="parent">
@@ -49,3 +50,4 @@ title: 布局 Layout
     <t-footer class="footer">footer</t-footer>
 </t-layout>
 ```
+:::

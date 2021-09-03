@@ -12,6 +12,8 @@ title: 栅格布局 Grid
 <Grid-demo/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <t-row class="parent">
     <t-col span="12"><div class="item item-dark">col-12</div></t-col>
@@ -36,6 +38,7 @@ title: 栅格布局 Grid
     <t-col span="20"><div class="item item-light">col-20</div></t-col>
 </t-row>
 ```
+:::
 
 
 ## 栅格间隔 gutter
@@ -43,6 +46,8 @@ title: 栅格布局 Grid
 <ClientOnly>
 <Grid-demo-gutter/>
 </ClientOnly>
+
+::: details 点击查看代码
 
 ```vue
 <t-row class="parent" gutter="20">
@@ -73,12 +78,15 @@ title: 栅格布局 Grid
     <t-col span="5"> <div class="item item-light">col-5</div></t-col>
 </t-row>
 ```
+:::
 
 ## 栅格偏移 offset
 
 <ClientOnly>
 <Grid-demo-offset/>
 </ClientOnly>
+
+::: details 点击查看代码
 
 ```vue
 <t-row class="parent">
@@ -104,12 +112,15 @@ title: 栅格布局 Grid
     <t-col span="20" offset="2"><div class="item item-light">col-20</div></t-col>
 </t-row>
 ```
+:::
 
 ## 响应式栅格
 
 <ClientOnly>
 <Grid-demo-response/>
 </ClientOnly>
+
+::: details 点击查看代码
 
 ```vue
 <t-row class="parent">
@@ -119,7 +130,7 @@ title: 栅格布局 Grid
     <t-col span="12" :ipad="{ span: 6 }" :narrowPc="{ span: 24 }"><div class="item item-light">col-24</div></t-col>
 </t-row>
 ```
-
+:::
 ## Props
 
 ### Row Props

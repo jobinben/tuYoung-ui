@@ -11,6 +11,8 @@ Popover 在内容周围弹出一些隐藏的信息。Popover 里面没什么内�
 <Popover-demo/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <t-popover position="top">
     <template slot="content">
@@ -40,12 +42,15 @@ Popover 在内容周围弹出一些隐藏的信息。Popover 里面没什么内�
     <t-button>右边</t-button>
 </t-popover>
 ```
+:::
 
 ## Hover
 
 <ClientOnly>
 <Popover-demo-hover/>
 </ClientOnly>
+
+::: details 点击查看代码
 
 ```vue
 <t-popover position="top" trigger="hover">
@@ -76,6 +81,7 @@ Popover 在内容周围弹出一些隐藏的信息。Popover 里面没什么内�
     <t-button>右边</t-button>
 </t-popover>
 ```
+:::
 
 
 ## Props

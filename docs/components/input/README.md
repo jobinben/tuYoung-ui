@@ -12,10 +12,13 @@ title: 文本框 Input
 <Input-demo/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <t-input placeholder="支持 placeholder"></t-input>
 <t-input value="支持 value"></t-input>
 ```
+:::
 
 ## 禁用状态
 
@@ -23,9 +26,12 @@ title: 文本框 Input
 <Input-demo-disabled/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
  <t-input placeholder="禁用状态" disabled></t-input>
 ```
+:::
 
 ## 数据双向绑定
 
@@ -33,10 +39,13 @@ title: 文本框 Input
 <Input-demo-binding/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <t-input placeholder="输入点东西试试" v-model="msg"></t-input>
 <p>{{ msg }}</p>
 ```
+:::
 
 ## 类型
 文本框的 `type` 分别为 `text`、`number`、`password`、`textarea`。
@@ -45,12 +54,15 @@ title: 文本框 Input
 <Input-demo-type/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <t-input placeholder="支持 text" type="text"></t-input>
 <t-input placeholder="支持 number" type="number"></t-input>
 <t-input placeholder="支持 password" type="password"></t-input>
 <t-input placeholder="支持 textarea" type="textarea"></t-input>
  ```   
+:::
 
 ## 状态提示
 
@@ -58,10 +70,13 @@ title: 文本框 Input
 <Input-demo-status/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <t-input placeholder="Error Input" error="tips of error." ></t-input> 
 <t-input placeholder="Success Input" success="tips of success."></t-input>
 ```
+:::
 
 ## Props
 

@@ -13,6 +13,8 @@ title: 折叠面板 Collapse
 <Collapse-demo/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <t-collapse :selected="['2']">
       <t-collapse-item title="title01" name="1">内容1</t-collapse-item>
@@ -21,12 +23,15 @@ title: 折叠面板 Collapse
       <t-collapse-item title="title04" name="4">内容4</t-collapse-item>
 </t-collapse>
 ```
+:::
 
 ## 手风琴模式
 
 <ClientOnly>
 <Collapse-demo-single/>
 </ClientOnly>
+
+::: details 点击查看代码
 
 ```vue
 <t-collapse single>
@@ -36,6 +41,7 @@ title: 折叠面板 Collapse
       <t-collapse-item title="title04" name="4">内容4</t-collapse-item>
 </t-collapse>
 ```
+:::
 ## Props
 
 ### Collapse Props

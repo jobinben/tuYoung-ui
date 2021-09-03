@@ -12,6 +12,8 @@ title: 提示 Toast
 <Toast-demo/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <template>
   <div style="padding: 1em">
@@ -54,5 +56,6 @@ export default {
 };
 </script>
 ```
+:::
 
 

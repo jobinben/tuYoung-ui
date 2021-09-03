@@ -12,6 +12,8 @@ title: 标签页 Tabs
 <Tabs-demo/>
 </ClientOnly>
 
+::: details 点击查看代码
+
 ```vue
 <t-tabs :selected.sync="selectedTab">
     <t-tabs-head>
@@ -26,12 +28,15 @@ title: 标签页 Tabs
     </t-tabs-body>
 </t-tabs>
 ```
+:::
 
 ## 可禁用标签
 
 <ClientOnly>
 <Tabs-demo-disabled/>
 </ClientOnly>
+
+::: details 点击查看代码
 
 ```vue
 <t-tabs :selected.sync="selectedTab">
@@ -47,6 +52,7 @@ title: 标签页 Tabs
     </t-tabs-body>
 </t-tabs>
 ```
+:::
 
 
 ## 图标标签
@@ -54,6 +60,8 @@ title: 标签页 Tabs
 <ClientOnly>
 <Tabs-demo-icon/>
 </ClientOnly>
+
+::: details 点击查看代码
 
 ```vue
 <t-tabs :selected.sync="selectedTab">
@@ -71,12 +79,15 @@ title: 标签页 Tabs
     </t-tabs-body>
 </t-tabs>
 ```
+:::
 
 ## 附加按钮标签
 
 <ClientOnly>
 <Tabs-demo-button/>
 </ClientOnly>
+
+::: details 点击查看代码
 
 ```vue
 <t-tabs :selected.sync="selectedTab">
@@ -95,6 +106,7 @@ title: 标签页 Tabs
     </t-tabs-body>
 </t-tabs>
 ```
+:::
 
 ## Props
 
