@@ -6,16 +6,17 @@ module.exports = {
     title: 'tuYoung UI',
     description: '一个基于Vue.2x的UI框架',
     themeConfig: {
+        logo: 'logo.png',
         nav: [
             { text: '主页', link: '/' },
-            { text: '文档', link: '/guide/' },
+            { text: '文档', link: '/guide/'},
             { text: '组件', link: '/components/' },
             { text: '交流', link: 'https://github.com/jobinben/tuYoung-ui' },
 
         ],
         sidebar: {
-
             '/guide/': [
+                
                 {
                     title: '',
                     collapsable: false,
