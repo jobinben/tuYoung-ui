@@ -1,6 +1,6 @@
 module.exports = {
     head: [
-        ["link", {rel: 'icon', href: 'logo.png'}]
+        ["link", { rel: 'icon', href: 'logo.png' }]
     ],
     base: '/',
     title: 'tuYoung UI',
@@ -9,14 +9,13 @@ module.exports = {
         logo: 'logo.png',
         nav: [
             { text: '主页', link: '/' },
-            { text: '文档', link: '/guide/'},
-            { text: '组件', link: '/components/' },
+            { text: '文档', link: '/guide/introduce/' },
+            { text: '组件', link: '/components/button/' },
             { text: '交流', link: 'https://github.com/jobinben/tuYoung-ui' },
 
         ],
         sidebar: {
             '/guide/': [
-                
                 {
                     title: '',
                     collapsable: false,
@@ -36,7 +35,7 @@ module.exports = {
                                 '/guide/get01/',
                             ]
                         },
-                       
+
                     ]
                 }
             ],
@@ -55,11 +54,9 @@ module.exports = {
                         '/components/layout/',
                         '/components/icon/',
                     ],
-    
+
                 }
             ]
-            
-
         },
 
 
