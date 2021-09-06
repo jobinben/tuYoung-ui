@@ -21,7 +21,7 @@ git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 
-# git push -f git@github.com:jobinben/tuYoung-ui.git master:gh-pages
+ git push -f git@github.com:jobinben/tuYoung-ui.git master:gh-pages
 
 # 发布到码云
 
