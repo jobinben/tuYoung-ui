@@ -2,11 +2,11 @@ module.exports = {
     head: [
         ["link", { rel: 'icon', href: 'logo.png' }]
     ],
-    base: '/tuYoung-ui/',
+    base: '/',
     title: 'tuYoung UI',
     description: '一个基于Vue.2x的UI框架',
     themeConfig: {
-        logo: 'logo.png',
+        logo: '/logo.png',
         nav: [
             { text: '主页', link: '/' },
             { text: '文档', link: '/guide/introduce/' },
