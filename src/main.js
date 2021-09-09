@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Test from './test.vue'
-import app from "./App.vue"
+// import app from "./App.vue"
 // // import Button from './components/Button.vue'
 // import Icon from './components/icon/Icon.vue'
 // console.log(Icon.name)
@@ -29,5 +29,5 @@ Vue.config.devtools = false
 
 new Vue({
 
-  render: function (h) { return h(app) },
+  render: function (h) { return h(Test) },
 }).$mount('#app')

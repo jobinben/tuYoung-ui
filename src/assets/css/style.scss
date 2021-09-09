@@ -1,34 +1,28 @@
-/* 这里定义Button通用一些变量 */
-$button-height: 32px;
-$font-size: 14px;
-$button-bg: white;
-$button-active-bg: #eee;
-$border-radius: 4px;
-$color: #333;
-$border-color: #bbb;
 $border-color-hover: #666;
-/**按钮type样式 */
-$button-bg-p: #18a058;
-$button-bg-p-hover: #36ad6a;
-$button-bg-p-active: #0c7a43;
-$button-bg-i: #2080f0;
-$button-bg-i-hover: #4098fc;
-$button-bg-i-active: #1060c9;
-$button-bg-w: #f0a020;
-$button-bg-w-hover: #fcb040;
-$button-bg-w-active: #c97c10;
-$button-bg-e: #d03050;
-$button-bg-e-hover: #de576d;
+$border-color: #bbb;
+$border-radius: 4px;
+$button-active-bg: #eee;
 $button-bg-e-active: #ab1f3f;
-
-/*input*/
-$input-border-color: #bbb;
-$input-border-color-hover: #666;
-$input-border-color-focus: rgba(0, 0, 0, 0.5);
+$button-bg-e-hover: #de576d;
+$button-bg-e: #d03050;
+$button-bg-i-active: #1060c9;
+$button-bg-i-hover: #4098fc;
+$button-bg-i: #2080f0;
+$button-bg-p-active: #0c7a43;
+$button-bg-p-hover: #36ad6a;
+$button-bg-p: #18a058;
+$button-bg-w-active: #c97c10;
+$button-bg-w-hover: #fcb040;
+$button-bg-w: #f0a020;
+$button-bg: white;
+$button-height: 32px;
+$color: #333;
 $error-bg: #d03050;
+$font-size: 14px;
+$input-border-color-focus: rgba(0, 0, 0, 0.5);
+$input-border-color-hover: #666;
+$input-border-color: #bbb;
 $success-bg: #18a058;
-
-/*toast*/
-$toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.65);
 $toast-border-radius: 4px;
+$toast-min-height: 40px;
