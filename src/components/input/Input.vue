@@ -64,12 +64,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$height: 32px;
-$border-color: #bbb;
-$border-color-hover: #666;
-$border-color-focus: rgba(0, 0, 0, 0.5);
-$error-bg: #d03050;
-$success-bg: #18a058;
+@import "../../assets/css/style.scss";
+
 $font-size: 12px;
 .wrapper {
   font-size: $font-size;
@@ -80,19 +76,19 @@ $font-size: 12px;
   }
   > input {
     height: 32px;
-    border: 1px solid $border-color;
+    border: 1px solid $input-border-color;
     border-radius: 4px;
     padding: 0 8px;
     font-size: inherit;
     &:hover {
-      border-color: $border-color-hover;
+      border-color: $input-border-color-hover;
     }
     &:focus {
-      box-shadow: 0 1px 3px $border-color-focus;
+      box-shadow: 0 1px 3px $input-border-color-focus;
       outline: none;
     }
     &[disabled] {
-      border-color: $border-color;
+      border-color: $input-border-color;
       cursor: not-allowed;
     }
   }

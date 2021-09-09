@@ -63,6 +63,8 @@ export default {
 
 <style lang="scss" scoped>
 
+@import "../../assets/css/style.scss";
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -71,29 +73,7 @@ export default {
     transform: rotate(360deg);
   }
 }
- /* 这里定义通用一些变量 */
-  $button-height: 32px;
-  $font-size: 14px;
-  $button-bg: white;
-  $button-active-bg: #eee;
-  $border-radius: 4px;
-  $color: #333;
-  $border-color: #bbb;
-  $border-color-hover: #666;
-/**按钮type样式 */
-  $button-bg-p: #18a058;
-  $button-bg-p-hover: #36ad6a;
-  $button-bg-p-active: #0c7a43;
-  $button-bg-i: #2080f0;
-  $button-bg-i-hover: #4098fc;
-  $button-bg-i-active: #1060c9;
-  $button-bg-w: #f0a020;
-  $button-bg-w-hover: #fcb040;
-  $button-bg-w-active: #c97c10;
-  $button-bg-e: #d03050;
-  $button-bg-e-hover: #de576d;
-  $button-bg-e-active: #ab1f3f;
-
+ 
 .t-button {
   font-size: $font-size;
   height: $button-height;
