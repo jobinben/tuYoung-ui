@@ -1,9 +1,7 @@
 <!-- author: 大冰 -->
 <template>
     <div id="app">
-      <t-cascader :source="source">
-        
-      </t-cascader>
+      <t-cascader :source="source"></t-cascader>
     </div>
 </template>
 

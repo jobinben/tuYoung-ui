@@ -1,13 +1,9 @@
 <!-- author: 大冰 -->
 <template>
   <div class="cascader">
-    <div class="trigger">
-      <slot></slot>
-    </div>
-    <div class="popover">
-      <div v-for="item in source" :key="item.name">
-        <t-cascader-item :sourceItem="item"></t-cascader-item>
-      </div>
+    <div class="trigger" @click="popoverVisible = !popoverVisible"></div>
+    <div class="popover" v-if="popoverVisible">
+      <t-cascader-item :sourceItem="source"></t-cascader-item>
     </div>
   </div>
 </template>
@@ -21,6 +17,11 @@ export default {
       type: Array
     }
   },
+  data() {
+    return {
+      popoverVisible: false
+    }
+  },
   components: {
     TCascaderItem
   }
@@ -29,5 +30,11 @@ export default {
 <style lang='scss' scoped>
 @import "../../assets/css/style.scss";
 .cascader {
+  width: 100px;
+  height: 32px;
+  border: 1px solid red;
+  .trigger{
+    height: 100%;
+  }
 }
 </style>
