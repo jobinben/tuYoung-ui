@@ -26,6 +26,7 @@ Vue.use(ToastPlugin)
 Vue.config.productionTip = false
 Vue.config.devtools = false
 
+import "../dist/tuyoungSvg.js"
 
 new Vue({
 
