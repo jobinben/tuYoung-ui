@@ -61,8 +61,9 @@ export default {
   methods: {
     onClickLabel(item) {
       let copy = JSON.parse(JSON.stringify(this.selected))
-      copy[this.level] = item
-      this.$emit('update:selected', copy) 
+      copy[this.level] = item 
+      copy.splice(this.level + 1) // 重新选中时，切除后面已经选中的地区
+      this.$emit('update:selected', copy)  // 传递当前选中的地区
       console.log(this.selected[this.level]); // this.selected[this.level] 是上一次选中的地区
     },
     
