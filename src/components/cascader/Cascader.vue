@@ -3,7 +3,9 @@
   <div class="cascader">
     <div class="trigger" @click="popoverVisible = !popoverVisible"></div>
     <div class="popover-wrapper" v-if="popoverVisible">
-      <t-cascader-item :sourceItem="source" :height="popoverHeight"></t-cascader-item>
+      <t-cascader-item :sourceItem="source" :height="popoverHeight"
+      :selected="selected" @update:selected="onUpdateSelected"
+      ></t-cascader-item>
     </div>
   </div>
 </template>
@@ -18,6 +20,10 @@ export default {
     },
     popoverHeight: {
       type: String
+    },
+    selected: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
@@ -27,6 +33,12 @@ export default {
   },
   components: {
     TCascaderItem
+  },
+  methods: {
+    onUpdateSelected(newSelected) {
+      console.log('n: ',newSelected);
+      this.$emit('update:selected', newSelected) // 传递当前选中的地区
+    }
   }
 };
 </script>

@@ -4,14 +4,16 @@
     <div class="left">
       <div class="label"
       v-for="item in sourceItem" :key="item.name"
-      @click="leftSelected = item"
+      @click="onClickLabel(item)"
       >
         {{item.name}}
       <t-icon class="icon" v-if="item.children" name="right"></t-icon>
       </div>
     </div>
     <div class="right" v-if="rightItems">
-      <t-cascader-item :sourceItem="rightItems" :height="height"></t-cascader-item>
+      <t-cascader-item :sourceItem="rightItems" :height="height"
+      :level="level+1" :selected="selected" @update:selected="onUpdateSelected"
+      ></t-cascader-item>
     </div>
   </div>
 </template>
@@ -29,21 +31,44 @@ export default {
     },
     height: {
       type: String
+    },
+    selected: {
+      type: Array,
+      default: () => []
+    },
+    level: {
+      type: Number,
+      default: 0
     }
   },
 
   data() {
     return {
-      leftSelected: null
     }
   },
 
   computed: {
     rightItems() {
-      if(this.leftSelected && this.leftSelected.children) {
-        return this.leftSelected.children
+      let currentSelected = this.selected[this.level]
+
+      if(currentSelected && currentSelected.children) {
+        return currentSelected.children
       }
       return null
+    }
+  },
+
+  methods: {
+    onClickLabel(item) {
+      let copy = JSON.parse(JSON.stringify(this.selected))
+      copy[this.level] = item
+      this.$emit('update:selected', copy) 
+      console.log(this.selected[this.level]); // this.selected[this.level] 是上一次选中的地区
+    },
+    
+    onUpdateSelected(newSelected) {
+      console.log('newSelect: ', newSelected); 
+      this.$emit('update:selected', newSelected) // 传递最新选中的地区
     }
   }
 

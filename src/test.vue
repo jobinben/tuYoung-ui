@@ -1,7 +1,10 @@
 <!-- author: 大冰 -->
 <template>
     <div id="app">
-      <t-cascader :source="source" popover-height="200px"></t-cascader>
+      <p>{{selected}}</p>
+      <t-cascader :source="source" popover-height="200px"
+      :selected="selected" @update:selected="selected = $event"
+      ></t-cascader>
     </div>
 </template>
 
@@ -21,6 +24,8 @@ export default {
 
   data() {
     return {
+      selected: [],
+
       source: [
       {
         name: "广东省",
