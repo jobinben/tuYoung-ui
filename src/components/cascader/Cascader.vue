@@ -1,7 +1,9 @@
 <!-- author: 大冰 -->
 <template>
   <div class="cascader">
-    <div class="trigger" @click="popoverVisible = !popoverVisible"></div>
+    <div class="trigger" @click="popoverVisible = !popoverVisible">
+      {{result || '&nbsp;'}}
+    </div>
     <div class="popover-wrapper" v-if="popoverVisible">
       <t-cascader-item :sourceItem="source" :height="popoverHeight"
       :selected="selected" @update:selected="onUpdateSelected"
@@ -39,6 +41,11 @@ export default {
       console.log('n: ',newSelected);
       this.$emit('update:selected', newSelected) // 传递当前选中的地区
     }
+  },
+  computed: {
+    result() {
+      return this.selected.map(item => item.name).join('/')
+    }
   }
 };
 </script>
@@ -47,8 +54,11 @@ export default {
 .cascader {
   position: relative;
   .trigger{
+    display: inline-flex;
+    align-items: center;
     height: 32px;
-    width: 100px;
+    padding: 0 1em;
+    min-width: 10em;
     border: 1px solid $border-color-hover;
   }
   .popover-wrapper{
