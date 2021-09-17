@@ -1,8 +1,9 @@
 <!-- author: 大冰 -->
 <template>
     <div id="app">
+      <!-- :selected="selected" @update:selected="selected = $event" -->
       <t-cascader :source="source" popover-height="200px"
-      :selected="selected" @update:selected="selected = $event"
+        :selected.sync="selected"
       ></t-cascader>
     </div>
 </template>
