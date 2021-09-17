@@ -37,6 +37,14 @@ export default {
               {name : '陆丰'},
               {name : '海丰'},
               {name : '陆河'},
+              { name: '城区'},
+              {name : '陆丰'},
+              {name : '海丰'},
+              {name : '陆河'},
+              { name: '城区'},
+              {name : '陆丰'},
+              {name : '海丰'},
+              {name : '陆河'},
             ]
           },
           {
