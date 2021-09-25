@@ -50,7 +50,6 @@ export default {
   computed: {
     rightItems() {
       let currentSelected = this.selected[this.level]
-
       if(currentSelected && currentSelected.children) {
         return currentSelected.children
       }
@@ -64,11 +63,14 @@ export default {
       copy[this.level] = item 
       copy.splice(this.level + 1) // 重新选中时，切除后面已经选中的地区
       this.$emit('update:selected', copy)  // 传递当前选中的地区
-      console.log(this.selected[this.level]); // this.selected[this.level] 是上一次选中的地区
+      // console.log(this.selected[this.level]); // this.selected[this.level] 是上一次选中的地区
+      // 如果没有孩子可以直接关闭
+      if(!item.children){
+      }
     },
     
     onUpdateSelected(newSelected) {
-      console.log('newSelect: ', newSelected); 
+      // console.log('newSelect: ', newSelected); 
       this.$emit('update:selected', newSelected) // 传递最新选中的地区
     }
   }
