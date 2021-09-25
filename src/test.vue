@@ -2,6 +2,7 @@
 <template>
     <div id="app">
       <!-- :selected="selected" @update:selected="selected = $event" -->
+      <p>{{selected.map(item=>item.name)}}</p>
       <t-cascader :source="source" popover-height="200px"
         :selected.sync="selected"
       ></t-cascader>
