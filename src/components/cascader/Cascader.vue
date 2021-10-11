@@ -39,7 +39,8 @@ export default {
 
   methods: {
     onUpdateSelected(newSelected) {
-      // console.log('n: ',newSelected);
+      // console.log('n: ',newSelected.map(item => item.name));
+      // let result = newSelected.map(item => item.name)
       this.$emit('update:selected', newSelected) // 传递当前选中的地区
     },
 

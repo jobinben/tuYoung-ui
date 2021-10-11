@@ -66,6 +66,8 @@ export default {
       // console.log(this.selected[this.level]); // this.selected[this.level] 是上一次选中的地区
       // 如果没有孩子可以直接关闭
       if(!item.children){
+        // let result = copy.map( item => item.name)
+        // console.log(result)
       }
     },
     
