@@ -19,5 +19,6 @@ describe('Collapse:', () => { // 检测元素
         expect(CollapseItem).to.be.exist
     })
 
+    // Props属性未测试
 
 })
