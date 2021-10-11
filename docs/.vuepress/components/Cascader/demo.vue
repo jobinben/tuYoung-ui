@@ -1,24 +1,7 @@
----
-title: 级联选择  Cascader
----
-
-# 级联选择  Cascader
-
-用来选一些树型信息。
-
-## 基础用法
-
-
-<ClientOnly>
-<Cascader-demo/>
-</ClientOnly>
-
-
-::: details 点击查看代码
-
-```vue
+<!-- author: 大冰 -->
 <template>
     <div style="padding: 1em">
+      <!-- :selected="selected" @update:selected="selected = $event" -->
       <p>{{selected.map(item=>item.name)}}</p>
       <t-cascader :source="source" popover-height="200px"
         :selected.sync="selected"
@@ -63,6 +46,7 @@ export default {
           }
         ]
       },
+
       {
         name: '福建省',
         children: [
@@ -74,28 +58,12 @@ export default {
         }
         ]
       }
+
     ]
     }
   }
 }
 </script>
-```
-:::
+<style lang='scss' scoped>
 
-
-## Props
-
-### Cascader Props
-
-| 名称 | 类型 | 可选值 | 默认值 | 说明 |
-| --- | --- | --- |  --- | --- |
-| source | `array<sourceOption>`| `-`  | `[]`  | 可选项数据源 |
-| popoverHeight | `string` |`*` | `-` | 展开的面板的高度 |
-| selected | `array` |`*` | `[]` | 选中后的结果 |
-
-#### sourceOption Properties
-
-| 名称 | 类型 | 说明 |
-| --- | --- |--- |
-| name | `string`|  展示的标题 |
-| children | `array<sourceOption>` | 该项的子项数据 |
+</style>

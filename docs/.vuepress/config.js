@@ -53,6 +53,7 @@ module.exports = {
                         '/components/grid/',
                         '/components/layout/',
                         '/components/icon/',
+                        '/components/cascader/',
                     ],
 
                 }
