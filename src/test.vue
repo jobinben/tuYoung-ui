@@ -1,7 +1,7 @@
 <!-- author: 大冰 -->
 <template>
     <div id="app">
-      <t-carousel selected = '1'>
+      <t-carousel class="slide" :selected.sync = 'selected'>
         <t-carousel-item name = '1'>
           <div class="box">1</div>
         </t-carousel-item>
@@ -35,16 +35,23 @@ export default {
 
   data() {
     return {
-
+      selected: '2'
     }
+  },
+
+  created() {
+
   }
 }
 </script>
 <style lang='scss' scoped>
+.slide{
+  margin: 40px;
+}
 .box{
   border: 1px solid black;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 200px;
   background: #ddd;
 }
 </style>

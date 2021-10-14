@@ -1,7 +1,7 @@
 <!-- author: 大冰 -->
 <template>
     <transition name="slide">
-        <div class="carouselItem" v-show='visible'>
+        <div class="carouselItem" v-show='visible' :class="{reverse}">
             <slot></slot>
         </div>
     </transition>
@@ -19,9 +19,16 @@ export default {
 
     data() {
         return {
-            visible: false
+            selected: undefined,
+            reverse: false
         }
+    },
+    computed: {
+       visible() {
+           return this.selected === this.name
+       }
     }
+    
 }
 </script>
 <style lang='scss' scoped>
@@ -32,15 +39,28 @@ export default {
 .slide-leave-to {
     transform: translateX(-100%);
 }
+
+// 反向动画
+.slide-enter.reverse{
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.slide-leave-to.reverse{
+    transform: translateX(100%) scale(.5);
+    opacity: 0;
+}
+
 .slide-enter-active,
 .slide-leave-active{
     transition: all 2s;
 }
 
+// 关键css 让离开后脱离文档流
 .slide-leave-active{
     position: absolute;
     left: 0;
     top: 0;
-    border: 10px solid red;
+    width: 100%;
+    height: 100%;
 }
 </style>
