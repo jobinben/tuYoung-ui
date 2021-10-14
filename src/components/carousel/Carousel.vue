@@ -8,10 +8,14 @@
     </div>
 
     <div class="carousel-dots">
-        <span v-for="n in childrenLength" :key='n' :class="{active: selectedIndex === n - 1}"
-        @click="selectDots(n-1)">
-            {{n}}
-        </span>
+      <span
+        v-for="n in childrenLength"
+        :key="n"
+        :class="{ active: selectedIndex === n - 1 }"
+        @click="selectDots(n - 1)"
+      >
+        {{ n }}
+      </span>
     </div>
   </div>
 </template>
@@ -30,17 +34,19 @@ export default {
       default: true,
     },
   },
-  
+
   data() {
-      return {
-          childrenLength: 0
-      }
+    return {
+      childrenLength: 0,
+      preSelectedIndex: undefined
+    };
   },
 
   mounted() {
     this.updateChildren();
     this.playAutomatically(); // 调用自动播放
     this.childrenLength = this.$children.length; //获取子组件，提供多少个dots
+    this.preSelectedIndex = this.selectedIndex
   },
 
   updated() {
@@ -49,12 +55,12 @@ export default {
   },
 
   computed: {
-      selectedIndex() {
-          return this.names.indexOf(this.selected || 0)
-      },
-      names() {
-          return this.$children.map(vm => vm.name)
-      }
+    selectedIndex() {
+      return this.names.indexOf(this.selected || 0);
+    },
+    names() {
+      return this.$children.map((vm) => vm.name);
+    },
   },
 
   methods: {
@@ -69,12 +75,13 @@ export default {
       let selected = this.getSelected();
       // 给子组件的selected属性赋值为当前选中的值
       this.$children.forEach((vm) => {
-        vm.selected = selected;
+
+        this.$nextTick(() => { // 解决更新不及时的bug导致动画的类未消失
+          vm.selected = selected;
+        });
 
         // 加入反向动画
-        let newIndex = this.names.indexOf(selected)
-        let oldIndex = this.names.indexOf(vm.name)
-        vm.reverse = newIndex > oldIndex ? false : true
+        vm.reverse = this.preSelectedIndex > this.selectedIndex ? false : true;
       });
     },
 
@@ -83,36 +90,37 @@ export default {
       let index = this.names.indexOf(this.getSelected());
 
       // 递归方式模拟setInterval
-     // 正向
-    //   let run = () => {
-    //     console.log(index);
-    //     if (index === names.length) {
-    //       index = 0;
-    //     }
-    //     this.$emit("update:selected", names[index + 1]); // 更改selected属性
-    //     index += 1;
-    //     setTimeout(run, 3000);
-    //   };
-    //   反向
-    let run = () => {
+      // 正向
+      //   let run = () => {
+      //     console.log(index);
+      //     if (index === names.length) {
+      //       index = 0;
+      //     }
+      //     this.$emit("update:selected", names[index + 1]); // 更改selected属性
+      //     index += 1;
+      //     setTimeout(run, 3000);
+      //   };
+      //   反向
+      let run = () => {
         console.log(index);
-        let newIndex = index - 1
+        let newIndex = index - 1;
         // if(newIndex === -1) {
         //     newIndex = names.length -1
         // }
         // if(newIndex === names.length) {
         //     newIndex = 0
         // }
-        this.$emit("update:selected", this.names[newIndex]); // 更改selected属性
+        this.selectDots(newIndex); // 更改selected属性
         setTimeout(run, 3000);
       };
       // 开始也延迟3s再调用
-    //   setTimeout(run, 3000);
+        // setTimeout(run, 3000);
     },
 
     // 点击dots
     selectDots(index) {
-        this.$emit("update:selected", this.names[index]); // 更改selected属性
+        this.preSelectedIndex = this.selectedIndex
+      this.$emit("update:selected", this.names[index]); // 更改selected属性
     },
   },
 };
@@ -127,12 +135,12 @@ export default {
     position: relative;
   }
 
-  &-dots{
-      > span {
-          &.active{
-              background: red;
-          }
+  &-dots {
+    > span {
+      &.active {
+        background: red;
       }
+    }
   }
 }
 </style>

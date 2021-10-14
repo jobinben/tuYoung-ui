@@ -25,6 +25,7 @@ export default {
     },
     computed: {
        visible() {
+           console.log('this.selected: ',this.selected)
            return this.selected === this.name
        }
     }
@@ -35,9 +36,12 @@ export default {
 
 .slide-enter {
     transform: translateX(100%);
+    opacity: 0;
+
 }
 .slide-leave-to {
-    transform: translateX(-100%);
+    transform: translateX(-100%) scale(.5);
+    opacity: 0;
 }
 
 // 反向动画
