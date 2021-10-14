@@ -6,6 +6,13 @@
         <slot></slot>
       </div>
     </div>
+
+    <div class="carousel-dots">
+        <span v-for="n in childrenLength" :key='n' :class="{active: selectedIndex === n - 1}"
+        @click="selectDots(n-1)">
+            {{n}}
+        </span>
+    </div>
   </div>
 </template>
 
@@ -23,15 +30,31 @@ export default {
       default: true,
     },
   },
+  
+  data() {
+      return {
+          childrenLength: 0
+      }
+  },
 
   mounted() {
     this.updateChildren();
     this.playAutomatically(); // 调用自动播放
+    this.childrenLength = this.$children.length; //获取子组件，提供多少个dots
   },
 
   updated() {
     // 监听selected变化时更新selected
     this.updateChildren();
+  },
+
+  computed: {
+      selectedIndex() {
+          return this.names.indexOf(this.selected || 0)
+      },
+      names() {
+          return this.$children.map(vm => vm.name)
+      }
   },
 
   methods: {
@@ -49,17 +72,15 @@ export default {
         vm.selected = selected;
 
         // 加入反向动画
-        let names = this.$children.map(item =>  item.name)
-        let newIndex = names.indexOf(selected)
-        let oldIndex = names.indexOf(vm.name)
+        let newIndex = this.names.indexOf(selected)
+        let oldIndex = this.names.indexOf(vm.name)
         vm.reverse = newIndex > oldIndex ? false : true
       });
     },
 
     // 自动播放
     playAutomatically() {
-      let names = this.$children.map((vm) => vm.name);
-      let index = names.indexOf(this.getSelected());
+      let index = this.names.indexOf(this.getSelected());
 
       // 递归方式模拟setInterval
      // 正向
@@ -82,11 +103,16 @@ export default {
         // if(newIndex === names.length) {
         //     newIndex = 0
         // }
-        this.$emit("update:selected", names[newIndex]); // 更改selected属性
+        this.$emit("update:selected", this.names[newIndex]); // 更改selected属性
         setTimeout(run, 3000);
       };
       // 开始也延迟3s再调用
-      setTimeout(run, 3000);
+    //   setTimeout(run, 3000);
+    },
+
+    // 点击dots
+    selectDots(index) {
+        this.$emit("update:selected", this.names[index]); // 更改selected属性
     },
   },
 };
@@ -99,6 +125,14 @@ export default {
   }
   &-wrapper {
     position: relative;
+  }
+
+  &-dots{
+      > span {
+          &.active{
+              background: red;
+          }
+      }
   }
 }
 </style>
