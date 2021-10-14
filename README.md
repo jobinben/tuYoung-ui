@@ -3,7 +3,7 @@
 
 **Too young too simple, sometimes naive.**
 
-[![Build Status](https://www.travis-ci.com/jobinben/tuYoung-ui.svg?branch=main)](https://www.travis-ci.com/jobinben/tuYoung-ui) ![npm](https://img.shields.io/npm/v/tuyoung?color=1&logo=tuyoung) ![NPM](https://img.shields.io/npm/l/tuyoung) ![npm](https://img.shields.io/npm/dm/tuyoung)
+[![Build Status](https://www.travis-ci.com/jobinben/tuYoung-ui.svg?branch=main)](https://www.travis-ci.com/jobinben/tuYoung-ui) ![npm](https://img.shields.io/npm/v/tuyoung?color=1&logo=tuyoung) ![NPM](https://img.shields.io/npm/l/tuyoung) ![npm](https://img.shields.io/npm/dy/tuyoung)
 
 
 
