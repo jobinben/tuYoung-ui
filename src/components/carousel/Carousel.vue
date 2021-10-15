@@ -25,25 +25,28 @@ export default {
   name: "TCarousel",
 
   props: {
-    selected: { // 默认选中
+    selected: {
+      // 默认选中
       type: String,
       default: "",
     },
-    autoPlay: { // 是否自动播放
+    autoPlay: {
+      // 是否自动播放
       type: Boolean,
       default: true,
     },
-    reverse: { // 是否反向播放
+    reverse: {
+      // 是否反向播放
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
     return {
       childrenLength: 0,
       preSelectedIndex: undefined,
-      timerId: null
+      timerId: null,
     };
   },
 
@@ -51,7 +54,7 @@ export default {
     this.updateChildren();
     this.playAutomatically(); // 调用自动播放
     this.childrenLength = this.$children.length; //获取子组件，提供多少个dots
-    this.preSelectedIndex = this.selectedIndex
+    this.preSelectedIndex = this.selectedIndex;
   },
 
   updated() {
@@ -66,88 +69,94 @@ export default {
     names() {
       return this.$children.map((vm) => vm.name);
     },
+    
   },
 
   methods: {
+
     getSelected() {
       // 获取第一个孩子结点的name 当作默认显示
       let first = this.$children[0];
       //let selected = this.selected || first.name;
       return this.selected || first.name;
     },
+
     updateChildren() {
       // 获取第一个孩子结点的name 当作默认显示
       let selected = this.getSelected();
       // 给子组件的selected属性赋值为当前选中的值
       this.$children.forEach((vm) => {
-
-        this.$nextTick(() => { // 解决更新不及时的bug导致动画的类未消失
+        this.$nextTick(() => {
+          // 解决更新不及时的bug导致动画的类未消失
           vm.selected = selected;
         });
-
         // 加入无缝正反向动画
-        let reverse = this.selectedIndex > this.preSelectedIndex ? false : true;
-        if(this.preSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
-          // 正向情况下的无缝 3 -> 0
-          reverse = false
-        }
-        if(this.preSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
-          // 反向情况下的无缝  0 -> 3
-          reverse = true
-        }
-        vm.reverse = reverse
+        this.ReverseAnimation(vm)
       });
+    },
+
+    ReverseAnimation(childrenNode) {
+      let reverse = this.selectedIndex > this.preSelectedIndex ? false : true;
+      if (this.timerId) {
+        // 没有自动轮播时，让无缝跳转正常。
+        if (this.preSelectedIndex === this.$children.length - 1 &&this.selectedIndex === 0) {
+          // 正向情况下的无缝 3 -> 0
+          reverse = false;
+        }
+        if ( this.preSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
+          // 反向情况下的无缝  0 -> 3
+          reverse = true;
+        }
+      }
+      childrenNode.reverse = reverse;
     },
 
     // 自动播放
     playAutomatically() {
       //   正反向关于index减还是加
-      if(this.timerId) return;
+      if (this.timerId) return;
       let run = () => {
         let index = this.names.indexOf(this.getSelected()); //获取当前的index
         let newIndex = this.controlDirection(index, this.reverse); // 控制正反
-        if(newIndex === -1) {
-            newIndex = this.names.length - 1
+        if (newIndex === -1) {
+          newIndex = this.names.length - 1;
         }
-        if(newIndex === this.names.length) {
-            newIndex = 0
+        if (newIndex === this.names.length) {
+          newIndex = 0;
         }
         this.selectDots(newIndex); // 更改selected属性
         this.timerId = setTimeout(run, 3000);
       };
       // 开始也延迟3s再调用
-        this.timerId = setTimeout(run, 3000);
+      this.timerId = setTimeout(run, 3000);
     },
 
     // 点击dots
     selectDots(index) {
-        this.preSelectedIndex = this.selectedIndex
+      this.preSelectedIndex = this.selectedIndex;
       this.$emit("update:selected", this.names[index]); // 更改selected属性
     },
 
     //暂停
-    pause(){
-      window.clearTimeout(this.timerId)
-      this.timerId = null
+    pause() {
+      window.clearTimeout(this.timerId);
+      this.timerId = null;
     },
 
     //鼠标移入暂停
     onMouseEnter() {
-      this.pause()
+      this.pause();
     },
 
     //移除播放
-    onMouseLeave(){
-      this.playAutomatically()
+    onMouseLeave() {
+      this.playAutomatically();
     },
 
     //控制方向
     controlDirection(index, reverse = false) {
-      return reverse ? index - 1 : index + 1
+      return reverse ? index - 1 : index + 1;
     },
-
-    
-
   },
 };
 </script>
