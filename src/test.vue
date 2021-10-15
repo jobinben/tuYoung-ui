@@ -1,7 +1,7 @@
 <!-- author: 大冰 -->
 <template>
     <div id="app">
-      <t-carousel class="slide" :selected.sync = 'selected'>
+      <t-carousel class="slide" :selected.sync = 'selected' reverse>
         <t-carousel-item name = '1'>
           <div class="box">1</div>
         </t-carousel-item>

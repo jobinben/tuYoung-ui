@@ -25,14 +25,18 @@ export default {
   name: "TCarousel",
 
   props: {
-    selected: {
+    selected: { // 默认选中
       type: String,
       default: "",
     },
-    autoPlay: {
+    autoPlay: { // 是否自动播放
       type: Boolean,
       default: true,
     },
+    reverse: { // 是否反向播放
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {
@@ -101,7 +105,7 @@ export default {
       if(this.timerId) return;
       let run = () => {
         let index = this.names.indexOf(this.getSelected()); //获取当前的index
-        let newIndex = index + 1; // 控制正反
+        let newIndex = this.controlDirection(index, this.reverse); // 控制正反
         if(newIndex === -1) {
             newIndex = this.names.length - 1
         }
@@ -135,7 +139,12 @@ export default {
     //移除播放
     onMouseLeave(){
       this.playAutomatically()
-    }
+    },
+
+    //控制方向
+    controlDirection(index, reverse = false) {
+      return reverse ? index - 1 : index + 1
+    },
 
     
 
