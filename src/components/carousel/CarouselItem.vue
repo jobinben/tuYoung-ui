@@ -25,7 +25,6 @@ export default {
     },
     computed: {
        visible() {
-           console.log('this.selected: ',this.selected)
            return this.selected === this.name
        }
     }
@@ -56,7 +55,7 @@ export default {
 
 .slide-enter-active,
 .slide-leave-active{
-    transition: all 2s;
+    transition: all 1s;
 }
 
 // 关键css 让离开后脱离文档流

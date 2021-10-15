@@ -1,6 +1,6 @@
 <!-- author: 大冰 -->
 <template>
-  <div class="carousel">
+  <div class="carousel" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
     <div class="carousel-window">
       <div class="carousel-wrapper">
         <slot></slot>
@@ -38,7 +38,8 @@ export default {
   data() {
     return {
       childrenLength: 0,
-      preSelectedIndex: undefined
+      preSelectedIndex: undefined,
+      timerId: null
     };
   },
 
@@ -80,41 +81,38 @@ export default {
           vm.selected = selected;
         });
 
-        // 加入反向动画
-        vm.reverse = this.preSelectedIndex > this.selectedIndex ? false : true;
+        // 加入无缝正反向动画
+        let reverse = this.selectedIndex > this.preSelectedIndex ? false : true;
+        if(this.preSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
+          // 正向情况下的无缝 3 -> 0
+          reverse = false
+        }
+        if(this.preSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
+          // 反向情况下的无缝  0 -> 3
+          reverse = true
+        }
+        vm.reverse = reverse
       });
     },
 
     // 自动播放
     playAutomatically() {
-      let index = this.names.indexOf(this.getSelected());
-
-      // 递归方式模拟setInterval
-      // 正向
-      //   let run = () => {
-      //     console.log(index);
-      //     if (index === names.length) {
-      //       index = 0;
-      //     }
-      //     this.$emit("update:selected", names[index + 1]); // 更改selected属性
-      //     index += 1;
-      //     setTimeout(run, 3000);
-      //   };
-      //   反向
+      //   正反向关于index减还是加
+      if(this.timerId) return;
       let run = () => {
-        console.log(index);
-        let newIndex = index - 1;
-        // if(newIndex === -1) {
-        //     newIndex = names.length -1
-        // }
-        // if(newIndex === names.length) {
-        //     newIndex = 0
-        // }
+        let index = this.names.indexOf(this.getSelected()); //获取当前的index
+        let newIndex = index + 1; // 控制正反
+        if(newIndex === -1) {
+            newIndex = this.names.length - 1
+        }
+        if(newIndex === this.names.length) {
+            newIndex = 0
+        }
         this.selectDots(newIndex); // 更改selected属性
-        setTimeout(run, 3000);
+        this.timerId = setTimeout(run, 3000);
       };
       // 开始也延迟3s再调用
-        // setTimeout(run, 3000);
+        this.timerId = setTimeout(run, 3000);
     },
 
     // 点击dots
@@ -122,6 +120,25 @@ export default {
         this.preSelectedIndex = this.selectedIndex
       this.$emit("update:selected", this.names[index]); // 更改selected属性
     },
+
+    //暂停
+    pause(){
+      window.clearTimeout(this.timerId)
+      this.timerId = null
+    },
+
+    //鼠标移入暂停
+    onMouseEnter() {
+      this.pause()
+    },
+
+    //移除播放
+    onMouseLeave(){
+      this.playAutomatically()
+    }
+
+    
+
   },
 };
 </script>
