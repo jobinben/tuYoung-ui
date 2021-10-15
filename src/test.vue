@@ -35,7 +35,7 @@ export default {
 
   data() {
     return {
-      selected: '2'
+      selected: undefined
     }
   },
 

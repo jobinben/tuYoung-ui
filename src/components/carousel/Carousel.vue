@@ -28,7 +28,7 @@ export default {
     selected: {
       // 默认选中
       type: String,
-      default: "",
+      default: undefined,
     },
     autoPlay: {
       // 是否自动播放
@@ -69,7 +69,7 @@ export default {
     names() {
       return this.$children.map((vm) => vm.name);
     },
-    
+
   },
 
   methods: {
@@ -171,9 +171,26 @@ export default {
   }
 
   &-dots {
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     > span {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      margin: 0 4px;
+      background: #ddd;
+      &:hover{
+        cursor: pointer;
+      }
       &.active {
-        background: red;
+        background: black;
+        color: white;
       }
     }
   }
