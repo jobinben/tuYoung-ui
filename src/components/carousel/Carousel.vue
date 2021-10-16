@@ -1,9 +1,11 @@
 <!-- author: 大冰 -->
 <template>
-  <div class="carousel" 
-  @mouseenter="onMouseEnter" @mouseleave="onMouseLeave"
-  @touchstart="onTouchStart"
-  @touchend="onTouchEnd"
+  <div
+    class="carousel"
+    @mouseenter="onMouseEnter"
+    @mouseleave="onMouseLeave"
+    @touchstart="onTouchStart"
+    @touchend="onTouchEnd"
   >
     <div class="carousel-window">
       <div class="carousel-wrapper">
@@ -51,7 +53,7 @@ export default {
       childrenLength: 0,
       preSelectedIndex: undefined,
       timerId: null,
-      startTouch: null
+      startTouch: null,
     };
   },
 
@@ -69,18 +71,15 @@ export default {
 
   computed: {
     selectedIndex() {
-      let index = this.names.indexOf(this.selected)
-      console.log(index)
-      return index = index === -1 ? 0 : index;
+      let index = this.names.indexOf(this.selected);
+      return (index = index === -1 ? 0 : index);
     },
     names() {
       return this.$children.map((vm) => vm.name);
     },
-
   },
 
   methods: {
-
     getSelected() {
       // 获取第一个孩子结点的name 当作默认显示
       let first = this.$children[0];
@@ -98,7 +97,7 @@ export default {
           vm.selected = selected;
         });
         // 加入无缝正反向动画
-        this.ReverseAnimation(vm)
+        this.ReverseAnimation(vm);
       });
     },
 
@@ -106,11 +105,17 @@ export default {
       let reverse = this.selectedIndex > this.preSelectedIndex ? false : true;
       if (this.timerId) {
         // 没有自动轮播时，让无缝跳转正常。
-        if (this.preSelectedIndex === this.$children.length - 1 &&this.selectedIndex === 0) {
+        if (
+          this.preSelectedIndex === this.$children.length - 1 &&
+          this.selectedIndex === 0
+        ) {
           // 正向情况下的无缝 3 -> 0
           reverse = false;
         }
-        if ( this.preSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
+        if (
+          this.preSelectedIndex === 0 &&
+          this.selectedIndex === this.$children.length - 1
+        ) {
           // 反向情况下的无缝  0 -> 3
           reverse = true;
         }
@@ -125,12 +130,6 @@ export default {
       let run = () => {
         let index = this.names.indexOf(this.getSelected()); //获取当前的index
         let newIndex = this.controlDirection(index, this.reverse); // 控制正反
-        if (newIndex === -1) {
-          newIndex = this.names.length - 1;
-        }
-        if (newIndex === this.names.length) {
-          newIndex = 0;
-        }
         this.selectDots(newIndex); // 更改selected属性
         this.timerId = setTimeout(run, 3000);
       };
@@ -139,9 +138,15 @@ export default {
     },
 
     // 点击dots
-    selectDots(index) {
+    selectDots(newIndex) {
       this.preSelectedIndex = this.selectedIndex;
-      this.$emit("update:selected", this.names[index]); // 更改selected属性
+      if (newIndex === -1) {
+        newIndex = this.names.length - 1;
+      }
+      if (newIndex === this.names.length) {
+        newIndex = 0;
+      }
+      this.$emit("update:selected", this.names[newIndex]); // 更改selected属性
     },
 
     //暂停
@@ -167,16 +172,34 @@ export default {
 
     // 支持手机滑动
     onTouchStart(e) {
-      this.pause() // 滑动时暂停自动播放
-      console.log(e.touches[0])
-      this.startTouch = e.touches[0]
+      this.pause(); // 滑动时暂停自动播放
+      this.startTouch = e.touches[0];
     },
 
     onTouchEnd(e) {
-      console.log(e.changedTouches[0])
-      this.playAutomatically() // 滑动结束后自动播放
-    }
+      let { clientX: x1, clientY: y1 } = this.startTouch;
+      let { clientX: x2, clientY: y2 } = e.changedTouches[0];
+      let sinA = this.getSlope(x1, y1, x2, y2);
+      // sinA = 30° = 1/2
+      if (sinA < 0.5) {
+        if (x1 > x2) {
+          this.selectDots(this.selectedIndex + 1);
+        } else if (x1 < x2) {
+          this.selectDots(this.selectedIndex - 1);
+        }
+      }
+      
+      this.playAutomatically(); // 滑动结束后自动播放
+    },
 
+    // 计算斜率算法 sin 对边比斜边
+    getSlope(x1, y1, x2, y2) {
+      // 斜边的距离
+      let slopeDistance = Math.sqrt((x2 - x1) ** 2, (y2 - y1) ** 2);
+      let oppositeDistance = Math.abs(y2 - y1);
+      let sinA = oppositeDistance / slopeDistance;
+      return (sinA = !sinA ? 0 : sinA);
+    },
   },
 };
 </script>
@@ -205,7 +228,7 @@ export default {
       font-size: 12px;
       margin: 0 4px;
       background: #ddd;
-      &:hover{
+      &:hover {
         cursor: pointer;
       }
       &.active {
