@@ -14,6 +14,9 @@
     </div>
 
     <div class="carousel-dots">
+      <span @click="selectDots(selectedIndex - 1)">
+        <t-icon name="left"></t-icon>
+      </span>
       <span
         v-for="n in childrenLength"
         :key="n"
@@ -22,14 +25,21 @@
       >
         {{ n }}
       </span>
+
+      <span @click="selectDots(selectedIndex + 1)">
+        <t-icon name="right"></t-icon>
+      </span>
     </div>
   </div>
 </template>
 
 <script>
+import TIcon from "../icon/Icon.vue"
 export default {
   name: "TCarousel",
-
+  components: {
+    TIcon
+  },
   props: {
     selected: {
       // 默认选中
@@ -60,7 +70,7 @@ export default {
   mounted() {
     this.updateChildren();
     this.playAutomatically(); // 调用自动播放
-    this.childrenLength = this.$children.length; //获取子组件，提供多少个dots
+    this.childrenLength = this.getChildrens.length; //获取子组件，提供多少个dots
     this.preSelectedIndex = this.selectedIndex;
   },
 
@@ -75,14 +85,18 @@ export default {
       return (index = index === -1 ? 0 : index);
     },
     names() {
-      return this.$children.map((vm) => vm.name);
+      return this.getChildrens.map((vm) => vm.name);
     },
+    
+    getChildrens() {
+      return this.$children.filter(vm => vm.$options.name === 'TCarouselItem')
+    }
   },
 
   methods: {
     getSelected() {
       // 获取第一个孩子结点的name 当作默认显示
-      let first = this.$children[0];
+      let first = this.getChildrens[0];
       //let selected = this.selected || first.name;
       return this.selected || first.name;
     },
@@ -91,7 +105,7 @@ export default {
       // 获取第一个孩子结点的name 当作默认显示
       let selected = this.getSelected();
       // 给子组件的selected属性赋值为当前选中的值
-      this.$children.forEach((vm) => {
+      this.getChildrens.forEach((vm) => {
         this.$nextTick(() => {
           // 解决更新不及时的bug导致动画的类未消失
           vm.selected = selected;
@@ -106,7 +120,7 @@ export default {
       if (this.timerId) {
         // 没有自动轮播时，让无缝跳转正常。
         if (
-          this.preSelectedIndex === this.$children.length - 1 &&
+          this.preSelectedIndex === this.getChildrens.length - 1 &&
           this.selectedIndex === 0
         ) {
           // 正向情况下的无缝 3 -> 0
@@ -114,7 +128,7 @@ export default {
         }
         if (
           this.preSelectedIndex === 0 &&
-          this.selectedIndex === this.$children.length - 1
+          this.selectedIndex === this.getChildrens.length - 1
         ) {
           // 反向情况下的无缝  0 -> 3
           reverse = true;
@@ -188,7 +202,7 @@ export default {
           this.selectDots(this.selectedIndex - 1);
         }
       }
-      
+
       this.playAutomatically(); // 滑动结束后自动播放
     },
 
