@@ -81,7 +81,7 @@ export default {
 | --- | --- | --- |  --- | --- |
 | selected | `string`| `CarouselItem<name>`  | `第一张`  | 从哪一张轮播开始, 与name绑定  |
 | autoPlay | `boolean` |`true` \| `flase` | `true` | 是否自动切换 |
-| reverse | `boolean` |`true` \| `flase`  | `false` | 是否方向播放 |
+| reverse | `boolean` |`true` \| `flase`  | `false` | 是否反向播放 |
 | interval | `number` |`*`  | `3000` | 自动播放的间隔 |
 
 #### CarouselItem Props
