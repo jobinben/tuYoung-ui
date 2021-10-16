@@ -155,6 +155,7 @@ export default {
 
     // 自动播放
     playAutomatically() {
+      if(!this.autoPlay) return;
       //   正反向关于index减还是加
       if (this.timerId) return;
       let run = () => {
