@@ -59,7 +59,7 @@ export default {
     interval: {
       // 自动播放间隔
       type: Number,
-      default: 2500,
+      default: 3000,
     },
   },
 

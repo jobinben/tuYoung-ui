@@ -10,3 +10,6 @@
 - [栅格布局 Grid](/components/grid/)
 - [布局 Layout](/components/layout/)
 - [图标 Icon](/components/icon/)
+- [级联 Cascader](/components/cascader/)
+- [轮播图 Carousel](/components/carousel/)
+- 

@@ -54,6 +54,8 @@ module.exports = {
                         '/components/layout/',
                         '/components/icon/',
                         '/components/cascader/',
+                        '/components/carousel/',
+
                     ],
 
                 }
