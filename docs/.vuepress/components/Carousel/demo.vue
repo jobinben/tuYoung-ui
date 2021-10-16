@@ -1,7 +1,7 @@
 <!-- author: 大冰 -->
 <template>
   <div style="padding: 1em">
-    <t-carousel class="slide" :selected.sync="selected" :interval="2000" reverse>
+    <t-carousel class="slide" :selected.sync="selected" :interval="2000">
       <t-carousel-item name="a">
         <div class="box">1</div>
       </t-carousel-item>
