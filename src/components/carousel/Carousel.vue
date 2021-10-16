@@ -1,6 +1,10 @@
 <!-- author: 大冰 -->
 <template>
-  <div class="carousel" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
+  <div class="carousel" 
+  @mouseenter="onMouseEnter" @mouseleave="onMouseLeave"
+  @touchstart="onTouchStart"
+  @touchend="onTouchEnd"
+  >
     <div class="carousel-window">
       <div class="carousel-wrapper">
         <slot></slot>
@@ -47,6 +51,7 @@ export default {
       childrenLength: 0,
       preSelectedIndex: undefined,
       timerId: null,
+      startTouch: null
     };
   },
 
@@ -64,7 +69,9 @@ export default {
 
   computed: {
     selectedIndex() {
-      return this.names.indexOf(this.selected || 0);
+      let index = this.names.indexOf(this.selected)
+      console.log(index)
+      return index = index === -1 ? 0 : index;
     },
     names() {
       return this.$children.map((vm) => vm.name);
@@ -157,6 +164,19 @@ export default {
     controlDirection(index, reverse = false) {
       return reverse ? index - 1 : index + 1;
     },
+
+    // 支持手机滑动
+    onTouchStart(e) {
+      this.pause() // 滑动时暂停自动播放
+      console.log(e.touches[0])
+      this.startTouch = e.touches[0]
+    },
+
+    onTouchEnd(e) {
+      console.log(e.changedTouches[0])
+      this.playAutomatically() // 滑动结束后自动播放
+    }
+
   },
 };
 </script>
