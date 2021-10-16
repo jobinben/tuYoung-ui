@@ -14,7 +14,7 @@
     </div>
 
     <div class="carousel-dots">
-      <span @click="selectDots(selectedIndex - 1)">
+      <span @click="onClickPre">
         <t-icon name="left"></t-icon>
       </span>
       <span
@@ -26,7 +26,7 @@
         {{ n }}
       </span>
 
-      <span @click="selectDots(selectedIndex + 1)">
+      <span @click="onClickNext">
         <t-icon name="right"></t-icon>
       </span>
     </div>
@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import TIcon from "../icon/Icon.vue"
+import TIcon from "../icon/Icon.vue";
 export default {
   name: "TCarousel",
   components: {
-    TIcon
+    TIcon,
   },
   props: {
     selected: {
@@ -55,6 +55,11 @@ export default {
       // 是否反向播放
       type: Boolean,
       default: false,
+    },
+    interval: {
+      // 自动播放间隔
+      type: Number,
+      default: 2500,
     },
   },
 
@@ -82,18 +87,28 @@ export default {
   computed: {
     selectedIndex() {
       let index = this.names.indexOf(this.selected);
-      return (index = index === -1 ? 0 : index);
+      return index === -1 ? 0 : index;
     },
     names() {
       return this.getChildrens.map((vm) => vm.name);
     },
-    
+
     getChildrens() {
-      return this.$children.filter(vm => vm.$options.name === 'TCarouselItem')
-    }
+      return this.$children.filter(
+        (vm) => vm.$options.name === "TCarouselItem"
+      );
+    },
   },
 
   methods: {
+    onClickPre() {
+      this.selectDots(this.selectedIndex - 1);
+    },
+
+    onClickNext() {
+      this.selectDots(this.selectedIndex + 1);
+    },
+
     getSelected() {
       // 获取第一个孩子结点的name 当作默认显示
       let first = this.getChildrens[0];
@@ -106,34 +121,35 @@ export default {
       let selected = this.getSelected();
       // 给子组件的selected属性赋值为当前选中的值
       this.getChildrens.forEach((vm) => {
+        // 加入无缝正反向动画
+        this.ReverseAnimation(vm);
+
         this.$nextTick(() => {
           // 解决更新不及时的bug导致动画的类未消失
           vm.selected = selected;
         });
-        // 加入无缝正反向动画
-        this.ReverseAnimation(vm);
       });
     },
 
     ReverseAnimation(childrenNode) {
       let reverse = this.selectedIndex > this.preSelectedIndex ? false : true;
-      if (this.timerId) {
-        // 没有自动轮播时，让无缝跳转正常。
-        if (
-          this.preSelectedIndex === this.getChildrens.length - 1 &&
-          this.selectedIndex === 0
-        ) {
-          // 正向情况下的无缝 3 -> 0
-          reverse = false;
-        }
-        if (
-          this.preSelectedIndex === 0 &&
-          this.selectedIndex === this.getChildrens.length - 1
-        ) {
-          // 反向情况下的无缝  0 -> 3
-          reverse = true;
-        }
+      // if (this.timerId) {// 这条判断会导致通过按钮前进后退不是无缝
+      // 没有自动轮播时，让无缝跳转正常。
+      if (
+        this.preSelectedIndex === this.getChildrens.length - 1 &&
+        this.selectedIndex === 0
+      ) {
+        // 正向情况下的无缝 3 -> 0
+        reverse = false;
       }
+      if (
+        this.preSelectedIndex === 0 &&
+        this.selectedIndex === this.getChildrens.length - 1
+      ) {
+        // 反向情况下的无缝  0 -> 3
+        reverse = true;
+      }
+      // }
       childrenNode.reverse = reverse;
     },
 
@@ -145,10 +161,10 @@ export default {
         let index = this.names.indexOf(this.getSelected()); //获取当前的index
         let newIndex = this.controlDirection(index, this.reverse); // 控制正反
         this.selectDots(newIndex); // 更改selected属性
-        this.timerId = setTimeout(run, 3000);
+        this.timerId = setTimeout(run, this.interval);
       };
       // 开始也延迟3s再调用
-      this.timerId = setTimeout(run, 3000);
+      this.timerId = setTimeout(run, this.interval);
     },
 
     // 点击dots
@@ -219,7 +235,6 @@ export default {
 </script>
 <style lang='scss' scoped>
 .carousel {
-  border: 1px solid red;
   &-window {
     overflow: hidden;
   }
