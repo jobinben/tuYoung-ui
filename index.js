@@ -18,6 +18,9 @@ import TabsBody from "./src/components/tabs/tabs-body"
 import TabsItem from "./src/components/tabs/tabs-item"
 import TabsPane from "./src/components/tabs/tabs-pane"
 import ToastPlugin from "./src/components/toast/toastPlugin"
+import Cascader from "./src/components/cascader/Cascader"
+import Carousel from "./src/components/carousel/Carousel"
+import CarouselItem from "./src/components/carousel/CarouselItem"
 const components = [
     Button,
     ButtonGroup,
@@ -37,7 +40,10 @@ const components = [
     TabsHead,
     TabsBody,
     TabsItem,
-    TabsPane
+    TabsPane,
+    Cascader,
+    Carousel,
+    CarouselItem
 ]
 
 const install = function (Vue, opt = {}) {
@@ -80,5 +86,8 @@ export {
     TabsBody,
     TabsItem,
     TabsPane,
-    ToastPlugin
+    ToastPlugin,
+    Cascader,
+    Carousel,
+    CarouselItem,
 }

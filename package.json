@@ -1,6 +1,6 @@
 {
   "name": "tuyoung",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "这是一个ui框架",
   "main": "dist/tuyoung.common.js",
   "scripts": {

@@ -14,6 +14,10 @@
           <div class="box">3</div>
         </t-carousel-item>
       </t-carousel>
+
+      <t-cascader :source="source" popover-height="200px"
+        :selected.sync="selected2"
+      ></t-cascader>
     </div>
 </template>
 
@@ -21,11 +25,13 @@
 
 import TCarousel from "../src/components/carousel/Carousel.vue"
 import TCarouselItem from "../src/components/carousel/CarouselItem.vue"
+import TCascader from "../src/components/cascader/Cascader.vue"
 export default {
   
   components:{
     TCarousel,
-    TCarouselItem
+    TCarouselItem,
+    TCascader
 },
   methods: {
     
@@ -33,7 +39,45 @@ export default {
 
   data() {
     return {
-      selected: 'a'
+      selected: 'a',
+      selected2: [],
+
+      source: [
+      {
+        name: "广东省",
+        children: [
+          {
+            name: '汕尾市',
+            children: [
+              {name: '城区'},
+              {name : '陆丰'},
+              {name : '海丰'},
+              {name : '陆河'},
+            ]
+          },
+          {
+            name: '珠海市',
+            children: [
+              {name : '红旗镇'},
+              {name: '金湾区'},
+            ]
+          }
+        ]
+      },
+
+      {
+        name: '福建省',
+        children: [
+          {
+          name: "泉州市",
+          children: [
+            {name: '丰泽区'}
+          ]
+        }
+        ]
+      }
+
+    ]
     }
   },
 
