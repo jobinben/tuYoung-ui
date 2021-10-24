@@ -27,16 +27,7 @@ title: 级联选择  Cascader
 </template>
 
 <script>
-import TCascader from "../../../../src/components/cascader/Cascader.vue"
-import TCascaderItem from "../../../../src/components/cascader/CascaderItem.vue"
-
 export default {
-  name: "tuYoung",
-  components:{
-    TCascader,
-    TCascaderItem
-  },
-
   data() {
     return {
       selected: [],
