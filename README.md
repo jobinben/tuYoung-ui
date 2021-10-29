@@ -14,7 +14,7 @@
 
 ├─desc `组件文档说明`
 ├─dist `打包后的文件`
-├─docs `官网文档`
+├─docs `官网文档` \n
 │  ├─.vuepress
 │  │  ├─components `官网组件例子`
 │  │  ├─dist `打包后的官网静态文件`
