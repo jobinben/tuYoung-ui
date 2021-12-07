@@ -10,27 +10,6 @@
 ## 介绍 Introduction
 ​	作者： 大冰
 
-## 目录介绍
-
-├─desc `组件文档说明`
-├─dist `打包后的文件`
-├─docs `官网文档` \n
-│  ├─.vuepress
-│  │  ├─components `官网组件例子`
-│  │  ├─dist `打包后的官网静态文件`
-│  │  └─public `官网logo文件`
-│  ├─components `官网组件说明文档`
-│  └─guide  `官网首页`
-│     
-├─src `源码`
-│  ├─assets `静态资源`
-│  └─components  `组件开发源文件`
-│ 
-├─tests `测试`
-│  └─unit  `单元测试用例`
-└─index.js `组件导出主要入口`
-
-
 
 
 ## 开始使用 Start
